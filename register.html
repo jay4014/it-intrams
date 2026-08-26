@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Register — IT Wizards Intramurals</title>
+    <meta name="description"
+        content="Register for IT Wizards Intramurals events. Fill in your details to join the competition.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Geist:wght@400&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#c3f400",
+                        "surface": "#131313",
+                        "background": "#131313",
+                        "on-background": "#e2e2e2",
+                        "on-surface": "#e2e2e2",
+                        "on-surface-variant": "#c4c9ac",
+                        "surface-container": "#1f1f1f",
+                        "surface-container-low": "#1b1b1b",
+                    },
+                    fontFamily: {
+                        "body-md": ["Geist"],
+                        "headline-lg": ["Space Grotesk"],
+                        "label-mono": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                    },
+                    fontSize: {
+                        "display-lg": ["72px", { lineHeight: "80px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-mono": ["14px", { lineHeight: "20px", letterSpacing: "0.1em", fontWeight: "500" }],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        #jerseyCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body {
+            position: relative;
+        }
+
+        body>*:not(#jerseyCanvas) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .input-field {
+            background: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            color: #000000;
+            font-weight: 500;
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Geist', sans-serif;
+            font-size: 16px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border-color: #CCFF00;
+            box-shadow: 0 0 0 2px #CCFF00;
+        }
+
+        .input-field::placeholder {
+            color: #777777;
+        }
+
+        .field-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            color: #c4c9ac;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .form-card {
+            background: rgba(13, 13, 13, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+        }
+
+        .btn-submit {
+            background: #CCFF00;
+            color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+            text-transform: uppercase;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.1s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 0 24px rgba(204, 255, 0, 0.5);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-submit .btn-spinner {
+            display: none;
+        }
+
+        .btn-submit.loading .btn-label {
+            display: none;
+        }
+
+        .btn-submit.loading .btn-spinner {
+            display: inline-block;
+        }
+
+        /* Success screen */
+        #successScreen {
+            display: none;
+        }
+
+        #successScreen.show {
+            display: flex;
+        }
+
+        /* Animated checkmark */
+        .check-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #CCFF00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Event badge */
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(204, 255, 0, 0.3);
+            background: rgba(204, 255, 0, 0.08);
+            padding: 6px 14px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #c4c9ac;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #CCFF00;
+        }
+
+        /* Error banner */
+        .error-banner {
+            display: none;
+            background: rgba(147, 0, 10, 0.3);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            padding: 12px 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #ffb4ab;
+            letter-spacing: 0.05em;
+        }
+
+        .error-banner.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+
+    <!-- Jersey Pattern Background Canvas -->
+    <canvas id="jerseyCanvas"></canvas>
+    <script>
+            (function () {
+                const canvas = document.getElementById('jerseyCanvas');
+                const ctx = canvas.getContext('2d');
+
+                let W, H;
+                let scrollY = window.scrollY;
+                let targetScrollY = scrollY;
+                let mouseX = 0, mouseY = 0;
+                let targetMouseX = 0, targetMouseY = 0;
+
+                window.addEventListener('scroll', () => {
+                    targetScrollY = window.scrollY;
+                }, { passive: true });
+
+                window.addEventListener('mousemove', (e) => {
+                    targetMouseX = (e.clientX - W / 2) * 0.08;
+                    targetMouseY = (e.clientY - H / 2) * 0.08;
+                }, { passive: true });
+
+                function resize() {
+                    W = canvas.width = window.innerWidth;
+                    H = canvas.height = window.innerHeight;
+                    init3DHexGrid();
+                }
+                window.addEventListener('resize', resize);
+
+                let hexNodes = [], hexEdges = [], pulses = [], particles = [];
+
+                function init3DHexGrid() {
+                    hexNodes = []; hexEdges = []; pulses = []; particles = [];
+                    const size = 52;
+                    const hWidth = size * Math.sqrt(3);
+                    const cols = Math.ceil((W * 1.6) / hWidth) + 4;
+                    const rows = Math.ceil((H * 2.5) / (size * 1.5)) + 6;
+
+                    let grid = [];
+                    for (let r = -2; r < rows; r++) {
+                        grid[r] = [];
+                        for (let c = -2; c < cols; c++) {
+                            const x = (c + (r % 2 === 0 ? 0 : 0.5)) * hWidth - (W * 0.3);
+                            const y = r * size * 1.5 - (H * 0.2);
+                            const z = Math.sin(r * 0.35 + c * 0.35) * 35;
+                            const node = { baseX: x, baseY: y, baseZ: z, pulse: Math.random() * Math.PI * 2 };
+                            grid[r][c] = hexNodes.length;
+                            hexNodes.push(node);
+                        }
+                    }
+
+                    const rowKeys = Object.keys(grid).map(Number).sort((a, b) => a - b);
+                    for (let rIdx = 0; rIdx < rowKeys.length; rIdx++) {
+                        const r = rowKeys[rIdx];
+                        const colKeys = Object.keys(grid[r]).map(Number).sort((a, b) => a - b);
+                        for (let cIdx = 0; cIdx < colKeys.length; cIdx++) {
+                            const c = colKeys[cIdx];
+                            const curr = grid[r][c];
+                            if (grid[r] && grid[r][c + 1] !== undefined) hexEdges.push([curr, grid[r][c + 1]]);
+                            const offset = (Math.abs(r) % 2 === 0) ? 0 : 1;
+                            if (grid[r + 1]) {
+                                if (grid[r + 1][c - 1 + offset] !== undefined) hexEdges.push([curr, grid[r + 1][c - 1 + offset]]);
+                                if (grid[r + 1][c + offset] !== undefined) hexEdges.push([curr, grid[r + 1][c + offset]]);
+                            }
+                        }
+                    }
+
+                    for (let i = 0; i < 35; i++) {
+                        pulses.push({
+                            edgeIdx: Math.floor(Math.random() * hexEdges.length),
+                            progress: Math.random(),
+                            speed: 0.004 + Math.random() * 0.008,
+                            isGold: Math.random() < 0.75
+                        });
+                    }
+
+                    for (let i = 0; i < 90; i++) {
+                        particles.push({
+                            x: (Math.random() - 0.5) * W * 1.5,
+                            y: Math.random() * H * 2 - H * 0.5,
+                            z: (Math.random() - 0.5) * 300,
+                            size: 1 + Math.random() * 2.5,
+                            vy: -0.2 - Math.random() * 0.5,
+                            pulse: Math.random() * Math.PI * 2
+                        });
+                    }
+                }
+
+                let time = 0;
+                function draw() {
+                    time += 0.012;
+                    scrollY += (targetScrollY - scrollY) * 0.08;
+                    mouseX += (targetMouseX - mouseX) * 0.05;
+                    mouseY += (targetMouseY - mouseY) * 0.05;
+
+                    ctx.clearRect(0, 0, W, H);
+
+                    const bgGrad = ctx.createRadialGradient(W * 0.5 + mouseX, H * 0.3 + mouseY, 0, W * 0.5, H * 0.5, W * 0.95);
+                    bgGrad.addColorStop(0, '#060703');
+                    bgGrad.addColorStop(0.5, '#0c0e07');
+                    bgGrad.addColorStop(0.85, '#12140a');
+                    bgGrad.addColorStop(1, '#161711');
+                    ctx.fillStyle = bgGrad;
+                    ctx.fillRect(0, 0, W, H);
+
+                    const fov = 500;
+                    const centerX = W / 2 + mouseX;
+                    const centerY = H / 2 + mouseY;
+
+                    const rotX = 0.32 + (scrollY * 0.00035);
+                    const rotY = Math.sin(time * 0.25) * 0.06 + (mouseX * 0.0004);
+                    const scrollShiftY = (scrollY * 0.45);
+
+                    const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+                    const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+
+                    const projectedNodes = new Array(hexNodes.length);
+
+                    for (let i = 0; i < hexNodes.length; i++) {
+                        const n = hexNodes[i];
+                        const waveZ = Math.sin(time * 1.4 + n.baseX * 0.008 + n.baseY * 0.008) * 18;
+
+                        let px = n.baseX - W / 2;
+                        let py = n.baseY - H / 2 - scrollShiftY;
+                        py = ((py + H) % (H * 1.8)) - H * 0.8;
+                        let pz = n.baseZ + waveZ;
+
+                        let x1 = px * cosY - pz * sinY;
+                        let z1 = px * sinY + pz * cosY;
+
+                        let y2 = py * cosX - z1 * sinX;
+                        let z2 = py * sinX + z1 * cosX;
+
+                        const scale = fov / (fov + z2 + 250);
+                        projectedNodes[i] = {
+                            x: centerX + x1 * scale,
+                            y: centerY + y2 * scale,
+                            z: z2,
+                            scale: scale,
+                            pulse: 0.5 + 0.5 * Math.sin(time * 2 + n.pulse)
+                        };
+                    }
+
+                    for (let i = 0; i < hexEdges.length; i++) {
+                        const [aIdx, bIdx] = hexEdges[i];
+                        const pA = projectedNodes[aIdx], pB = projectedNodes[bIdx];
+                        if (!pA || !pB || Math.abs(pA.x - pB.x) > W * 0.5 || Math.abs(pA.y - pB.y) > H * 0.5) continue;
+
+                        const avgScale = (pA.scale + pB.scale) * 0.5;
+                        const edgePulse = (pA.pulse + pB.pulse) * 0.5;
+                        const alpha = Math.max(0.12, Math.min(0.55, 0.22 * avgScale * (0.7 + edgePulse * 0.4)));
+
+                        ctx.beginPath();
+                        ctx.moveTo(pA.x, pA.y);
+                        ctx.lineTo(pB.x, pB.y);
+                        ctx.strokeStyle = `rgba(204, 255, 0, ${alpha})`;
+                        ctx.lineWidth = Math.max(0.6, 1.4 * avgScale);
+                        ctx.stroke();
+                    }
+
+                    for (let i = 0; i < pulses.length; i++) {
+                        const p = pulses[i];
+                        p.progress += p.speed;
+                        if (p.progress >= 1) {
+                            p.progress = 0;
+                            p.edgeIdx = Math.floor(Math.random() * hexEdges.length);
+                        }
+
+                        const [aIdx, bIdx] = hexEdges[p.edgeIdx];
+                        const pA = projectedNodes[aIdx], pB = projectedNodes[bIdx];
+
+                        if (pA && pB && Math.abs(pA.x - pB.x) < W * 0.5 && Math.abs(pA.y - pB.y) < H * 0.5) {
+                            const curX = pA.x + (pB.x - pA.x) * p.progress;
+                            const curY = pA.y + (pB.y - pA.y) * p.progress;
+                            const scale = (pA.scale + pB.scale) * 0.5;
+
+                            ctx.beginPath();
+                            ctx.arc(curX, curY, Math.max(1.2, 3.2 * scale), 0, Math.PI * 2);
+                            ctx.fillStyle = p.isGold ? '#CCFF00' : '#FFFFFF';
+                            ctx.shadowColor = '#CCFF00';
+                            ctx.shadowBlur = 10;
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+                        }
+                    }
+
+                    for (let i = 0; i < projectedNodes.length; i += 2) {
+                        const p = projectedNodes[i];
+                        if (!p) continue;
+                        const alpha = Math.max(0.15, Math.min(0.85, 0.35 * p.scale * p.pulse));
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, Math.max(1.0, 2.5 * p.scale), 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(204, 255, 0, ${alpha})`;
+                        ctx.fill();
+                    }
+
+                    for (let i = 0; i < particles.length; i++) {
+                        const pt = particles[i];
+                        pt.y += pt.vy;
+                        if (pt.y < -H * 0.5) pt.y = H * 1.5;
+
+                        const py = pt.y - (scrollY * 0.2);
+                        const scale = fov / (fov + pt.z + 250);
+                        const px = centerX + pt.x * scale;
+                        const pyProj = centerY + (py - H / 2) * scale;
+
+                        if (scale > 0 && px >= -50 && px <= W + 50 && pyProj >= -50 && pyProj <= H + 50) {
+                            const alpha = 0.25 + 0.65 * Math.sin(time * 2.5 + pt.pulse);
+                            ctx.beginPath();
+                            ctx.arc(px, pyProj, Math.max(0.6, pt.size * scale), 0, Math.PI * 2);
+                            ctx.fillStyle = (i % 3 === 0) ? `rgba(255,255,255,${alpha * 0.7})` : `rgba(204,255,0,${alpha * 0.85})`;
+                            ctx.fill();
+                        }
+                    }
+
+                    requestAnimationFrame(draw);
+                }
+
+                resize();
+                draw();
+            }());
+    </script>
+
+    <!-- ── Top Nav ──────────────────────────────────────────────────────── -->
+    <header class="sticky top-0 z-50 border-b border-white/10"
+        style="background:rgba(19,19,19,0.9);backdrop-filter:blur(12px);">
+        <div class="flex items-center gap-6 px-6 md:px-16 py-4 max-w-7xl mx-auto">
+            <a href="index.html" class="back-link">
+                <span class="material-symbols-outlined" style="font-size:16px;">arrow_back</span>
+                Back
+            </a>
+            <div class="font-headline-lg text-primary-fixed tracking-tighter uppercase ml-auto" style="font-size:20px;">
+                IT WIZARDS</div>
+        </div>
+    </header>
+
+    <!-- ── Main ────────────────────────────────────────────────────────── -->
+    <main class="min-h-screen flex flex-col items-center justify-center px-4 py-16">
+
+        <!-- Registration Form -->
+        <div id="formSection" class="w-full max-w-lg">
+
+            <!-- Header -->
+            <div class="mb-10">
+                <div class="event-badge mb-6" id="eventBadge">
+                    <span class="w-2 h-2 rounded-none animate-pulse" style="background:#CCFF00;min-width:8px;"></span>
+                    <span
+                        style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#CCFF00;"
+                        id="eventBadgeText">LOADING...</span>
+                </div>
+                <h1
+                    style="font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,6vw,56px);font-weight:700;line-height:1.1;color:#fff;text-transform:uppercase;letter-spacing:-0.02em;">
+                    REGISTRATION<br>
+                    <span style="color:#CCFF00;">FORM</span>
+                </h1>
+                <p
+                    style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#c4c9ac;letter-spacing:0.08em;margin-top:12px;">
+                    FILL IN YOUR DETAILS TO COMPLETE YOUR REGISTRATION.
+                </p>
+            </div>
+
+            <!-- Card -->
+            <div class="form-card p-8">
+
+                <!-- Error Banner -->
+                <div class="error-banner mb-6" id="errorBanner">
+                    ⚠ SUBMISSION FAILED — CHECK YOUR CONNECTION AND TRY AGAIN.
+                </div>
+
+                <form id="regForm" novalidate>
+                    <input type="hidden" id="fieldEvent" name="event">
+
+                    <!-- Full Name -->
+                    <div class="mb-6">
+                        <label class="field-label" for="fieldName">Full Name</label>
+                        <input class="input-field" id="fieldName" name="name" type="text"
+                            placeholder="e.g. Juan dela Cruz" required autocomplete="name">
+                    </div>
+
+                    <!-- Year Level -->
+                    <div class="mb-6">
+                        <label class="field-label" for="fieldYear">Year Level <span
+                                class="text-primary-fixed">*</span></label>
+                        <select class="input-field" id="fieldYear" name="year" required>
+                            <option value="" disabled selected>Select Year Level</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+
+                    <!-- Section -->
+                    <div class="mb-6">
+                        <label class="field-label" for="fieldSection">Section <span
+                                class="text-primary-fixed">*</span></label>
+                        <select class="input-field" id="fieldSection" name="section" required>
+                            <option value="" disabled selected>Select Section</option>
+                            <option value="Section 1">Section 1</option>
+                            <option value="Section 2">Section 2</option>
+                            <option value="Section 3">Section 3</option>
+                            <option value="Section 4">Section 4</option>
+                            <option value="Section 5">Section 5</option>
+                            <option value="Section 6">Section 6</option>
+                            <option value="Section 7">Section 7</option>
+                            <option value="Section 8">Section 8</option>
+                            <option value="Section 9">Section 9</option>
+                            <option value="Section 10">Section 10</option>
+                            <option value="Section 11">Section 11</option>
+                            <option value="Section 12">Section 12</option>
+                            <option value="Section 13">Section 13</option>
+                            <option value="Section 14">Section 14</option>
+                            <option value="Section 15">Section 15</option>
+                            <option value="Section 16">Section 16</option>
+                            <option value="Section 17">Section 17</option>
+                            <option value="Section 18">Section 18</option>
+                            <option value="Section 19">Section 19</option>
+                            <option value="Section 20">Section 20</option>
+                        </select>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="mb-6">
+                        <label class="field-label" for="fieldContact">Contact Number <span
+                                class="text-primary-fixed">*</span></label>
+                        <input class="input-field" id="fieldContact" name="contact" type="tel"
+                            placeholder="e.g. 09123456789" maxlength="11" minlength="11" pattern="[0-9]{11}" required
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11); document.getElementById('contactError').classList.add('hidden'); this.style.borderColor='';">
+                        <p id="contactError" class="hidden"
+                            style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#FF5555;margin-top:6px;font-weight:600;letter-spacing:0.04em;">
+                            ⚠ EXACTLY 11 DIGITS REQUIRED
+                        </p>
+                        <p
+                            style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(196,201,172,0.6);margin-top:4px;">
+                            MUST BE EXACTLY 11 DIGITS (E.G. 09123456789)
+                        </p>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-6" id="genderGroup">
+                        <label class="field-label" for="fieldGender">Gender <span
+                                class="text-primary-fixed">*</span></label>
+                        <select class="input-field" id="fieldGender" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="mb-8">
+                        <label class="field-label" for="fieldEmail">Email Address (Gmail) <span
+                                class="text-primary-fixed">*</span></label>
+                        <input class="input-field" id="fieldEmail" name="email" type="email"
+                            placeholder="e.g. student@gmail.com" required autocomplete="email"
+                            oninput="document.getElementById('emailError').classList.add('hidden'); this.style.borderColor='';">
+                        <p id="emailError" class="hidden"
+                            style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#FF5555;margin-top:6px;font-weight:600;letter-spacing:0.04em;">
+                            ⚠ @GMAIL REQUIRED (E.G. STUDENT@GMAIL.COM)
+                        </p>
+                        <p
+                            style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(196,201,172,0.6);margin-top:4px;">
+                            MUST BE A VALID GMAIL ADDRESS ENDING WITH @GMAIL.COM
+                        </p>
+                    </div>
+
+                    <!-- Submit -->
+                    <button class="btn-submit" type="submit" id="submitBtn">
+                        <span class="btn-label">SUBMIT REGISTRATION →</span>
+                        <span class="btn-spinner">PROCESSING...</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Disclaimer -->
+            <p
+                style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(196,201,172,0.5);letter-spacing:0.06em;text-align:center;margin-top:20px;">
+                DATA IS COLLECTED SOLELY FOR IT WIZARDS INTRAMURALS PURPOSES.
+            </p>
+        </div>
+
+        <!-- ── Loading Modal Progress Dialog (Anti-Duplicate UX) ──────────────── -->
+        <div id="loadingModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+            style="background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);">
+            <div class="form-card p-10 max-w-md w-full flex flex-col items-center text-center relative overflow-hidden"
+                style="border:1px solid #CCFF00;box-shadow:0 0 40px rgba(204,255,0,0.2);">
+                <!-- Glowing corner accents -->
+                <div class="absolute top-0 left-0 w-3 h-3" style="background:#CCFF00;"></div>
+                <div class="absolute top-0 right-0 w-3 h-3" style="background:#CCFF00;"></div>
+                <div class="absolute bottom-0 left-0 w-3 h-3" style="background:#CCFF00;"></div>
+                <div class="absolute bottom-0 right-0 w-3 h-3" style="background:#CCFF00;"></div>
+
+                <!-- Animated Tech Spinner -->
+                <div class="relative w-20 h-20 mb-6 flex items-center justify-center">
+                    <div
+                        class="absolute inset-0 rounded-full border-4 border-t-primary-fixed border-r-transparent border-b-primary-fixed/30 border-l-transparent animate-spin">
+                    </div>
+                    <span class="material-symbols-outlined text-primary-fixed animate-pulse"
+                        style="font-size:32px;">sync</span>
+                </div>
+
+                <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:-0.01em;"
+                    id="loadingTitle">
+                    PROCESSING DATA
+                </h3>
+
+                <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#CCFF00;letter-spacing:0.08em;margin-top:8px;"
+                    id="loadingStatusText">
+                    CONNECTING TO GOOGLE SHEETS...
+                </p>
+
+                <!-- Neon Progress Bar -->
+                <div class="w-full h-1.5 bg-white/10 mt-6 relative overflow-hidden">
+                    <div id="loadingProgressBar" class="h-full bg-primary-fixed transition-all duration-300 ease-out"
+                        style="width:15%;box-shadow:0 0 12px #CCFF00;"></div>
+                </div>
+
+                <p
+                    style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(196,201,172,0.6);margin-top:16px;">
+                    PLEASE WAIT • DO NOT REFRESH PAGE
+                </p>
+            </div>
+        </div>
+
+        <!-- ── Success Screen ──────────────────────────────────────────── -->
+        <div id="successScreen" class="w-full max-w-lg flex-col items-center text-center">
+            <div class="form-card p-12 flex flex-col items-center gap-6">
+                <div class="check-circle">
+                    <span class="material-symbols-outlined" style="color:#CCFF00;font-size:40px;">check</span>
+                </div>
+                <div>
+                    <p
+                        style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#CCFF00;text-transform:uppercase;margin-bottom:8px;">
+                        REGISTRATION COMPLETE
+                    </p>
+                    <h2
+                        style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:-0.01em;">
+                        YOU'RE IN!
+                    </h2>
+                    <p style="font-family:'Geist',sans-serif;font-size:15px;color:#c4c9ac;margin-top:10px;"
+                        id="successMsg">
+                        Your registration has been received.
+                    </p>
+                </div>
+                <div
+                    style="width:100%;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;flex-direction:column;gap:12px;">
+                    <a href="index.html" class="btn-submit"
+                        style="display:block;text-decoration:none;text-align:center;">
+                        ← BACK TO EVENTS
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // ─────────────────────────────────────────────────────────────────────
+        //  GOOGLE SHEETS — Live Web App Endpoint
+        // ─────────────────────────────────────────────────────────────────────
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyB4xhZO7Px_be_IY_2yZF6BTEiHv0jnUimXDgSWJELK3NwoA7tuCTyRXnZ793lexeK1g/exec';
+
+        // ─── Read event from URL param ────────────────────────────────────────
+        const params = new URLSearchParams(window.location.search);
+        const eventName = params.get('event') || 'General Registration';
+
+        document.getElementById('eventBadgeText').textContent = eventName.toUpperCase();
+        document.getElementById('fieldEvent').value = eventName;
+        document.title = `Register — ${eventName} | IT Wizards`;
+
+        // ── Capacity Limits ─────────────────────────────────────────────
+        const GENDER_SPLIT_LIMITS = {
+            'Volleyball': { Male: 30, Female: 30 },
+            'Table Tennis': { Male: 10, Female: 10 },
+            'Badminton': { Male: 10, Female: 10 },
+            'Pickleball': { Male: 10, Female: 10 }
+        };
+        const TOTAL_LIMITS = {};
+        const MALE_ONLY_LIMITS = { 'Basketball': 30 };
+
+        let capLocked = false;
+
+        async function getSheetCount(tabName) {
+            let sheetCount = 0;
+            if (SCRIPT_URL && SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
+                try {
+                    const res = await fetch(SCRIPT_URL);
+                    const data = await res.json();
+                    if (data && data.result === 'success' && data.counts) {
+                        Object.keys(data.counts).forEach(name => {
+                            if (name.toLowerCase() === tabName.toLowerCase()) sheetCount = data.counts[name];
+                        });
+                    }
+                } catch (err) { console.log('Using local slot count (offline).'); }
+            }
+            return sheetCount;
+        }
+
+        async function getBestCount(localKey, tabName) {
+            const localCount = parseInt(localStorage.getItem(localKey) || '0');
+            const sheetCount = await getSheetCount(tabName);
+            return Math.max(localCount, sheetCount);
+        }
+
+        function lockSubmit(message) {
+            capLocked = true;
+            document.getElementById('errorBanner').textContent = '⚠ ' + message;
+            document.getElementById('errorBanner').classList.add('show');
+            document.getElementById('submitBtn').disabled = true;
+        }
+
+        function unlockSubmit() {
+            capLocked = false;
+            document.getElementById('errorBanner').classList.remove('show');
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        // Handles live gender-based re-check for any gender-split event
+        async function onGenderCapChange() {
+            if (!GENDER_SPLIT_LIMITS[eventName]) return;
+            const gender = document.getElementById('fieldGender').value;
+            if (!gender) return;
+
+            const limit = GENDER_SPLIT_LIMITS[eventName][gender];
+            const count = await getBestCount('count_' + eventName + '-' + gender, eventName + ' - ' + gender);
+
+            if (count >= limit) {
+                document.getElementById('fieldGender').style.borderColor = '#FF5555';
+                lockSubmit(gender.toUpperCase() + ' ' + eventName.toUpperCase() + ' SLOTS ARE FULL (' + limit + '/' + limit + '). SELECT A DIFFERENT GENDER.');
+            } else {
+                document.getElementById('fieldGender').style.borderColor = '';
+                unlockSubmit();
+            }
+        }
+
+        // Runs once on page load to configure/lock the form for whichever event this is
+        async function initCapacityRules() {
+            const genderSelect = document.getElementById('fieldGender');
+
+            if (MALE_ONLY_LIMITS[eventName] !== undefined) {
+                // Basketball: boys only — disable the Female option
+                Array.from(genderSelect.options).forEach(opt => { if (opt.value === 'Female') opt.disabled = true; });
+                genderSelect.value = 'Male';
+                const count = await getBestCount('count_' + eventName, eventName);
+                if (count >= MALE_ONLY_LIMITS[eventName]) {
+                    lockSubmit(eventName.toUpperCase() + ' SLOTS ARE FULL (' + MALE_ONLY_LIMITS[eventName] + '/' + MALE_ONLY_LIMITS[eventName] + '). REGISTRATION CLOSED.');
+                }
+            }
+
+            if (TOTAL_LIMITS[eventName] !== undefined) {
+                const count = await getBestCount('count_' + eventName, eventName);
+                if (count >= TOTAL_LIMITS[eventName]) {
+                    lockSubmit(eventName.toUpperCase() + ' SLOTS ARE FULL (' + TOTAL_LIMITS[eventName] + '/' + TOTAL_LIMITS[eventName] + '). REGISTRATION CLOSED.');
+                }
+            }
+
+            if (GENDER_SPLIT_LIMITS[eventName]) {
+                genderSelect.addEventListener('change', onGenderCapChange);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCapacityRules);
+
+        // ─── Form submission with strict anti-duplicate protection ───────────
+        let isSubmitting = false;
+
+        document.getElementById('regForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (isSubmitting) return;
+
+            document.getElementById('contactError').classList.add('hidden');
+            document.getElementById('emailError').classList.add('hidden');
+
+            const fields = ['fieldName', 'fieldGender', 'fieldYear', 'fieldSection', 'fieldContact', 'fieldEmail'];
+            let valid = true;
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el.value || !el.value.trim()) { el.style.borderColor = '#FF5555'; valid = false; }
+                else el.style.borderColor = '';
+            });
+
+            const contactEl = document.getElementById('fieldContact');
+            const contactVal = contactEl.value.trim();
+            if (!/^\d{11}$/.test(contactVal)) {
+                contactEl.style.borderColor = '#FF5555';
+                document.getElementById('contactError').classList.remove('hidden');
+                contactEl.focus();
+                valid = false;
+            }
+
+            const emailEl = document.getElementById('fieldEmail');
+            const emailVal = emailEl.value.trim().toLowerCase();
+            if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailVal)) {
+                emailEl.style.borderColor = '#FF5555';
+                document.getElementById('emailError').classList.remove('hidden');
+                emailEl.focus();
+                valid = false;
+            }
+
+            if (!valid) return;
+            if (capLocked) return;
+
+            // ── Final live re-check right before submission — closes the race-condition window ──
+            if (GENDER_SPLIT_LIMITS[eventName]) {
+                const gender = document.getElementById('fieldGender').value;
+                const limit = GENDER_SPLIT_LIMITS[eventName][gender];
+                const liveCount = await getBestCount('count_' + eventName + '-' + gender, eventName + ' - ' + gender);
+                if (liveCount >= limit) {
+                    lockSubmit(gender.toUpperCase() + ' ' + eventName.toUpperCase() + ' SLOTS ARE NOW FULL.');
+                    return;
+                }
+            } else if (TOTAL_LIMITS[eventName] !== undefined) {
+                const liveCount = await getBestCount('count_' + eventName, eventName);
+                if (liveCount >= TOTAL_LIMITS[eventName]) {
+                    lockSubmit(eventName.toUpperCase() + ' SLOTS ARE NOW FULL.');
+                    return;
+                }
+            } else if (MALE_ONLY_LIMITS[eventName] !== undefined) {
+                const liveCount = await getBestCount('count_' + eventName, eventName);
+                if (liveCount >= MALE_ONLY_LIMITS[eventName]) {
+                    lockSubmit(eventName.toUpperCase() + ' SLOTS ARE NOW FULL.');
+                    return;
+                }
+            }
+
+            isSubmitting = true;
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            document.getElementById('errorBanner').classList.remove('show');
+
+            const loadingModal = document.getElementById('loadingModal');
+            const loadingStatusText = document.getElementById('loadingStatusText');
+            const loadingProgressBar = document.getElementById('loadingProgressBar');
+            loadingModal.classList.remove('hidden');
+            loadingModal.classList.add('flex');
+
+            const payload = {
+                event: eventName,
+                name: document.getElementById('fieldName').value.trim(),
+                gender: document.getElementById('fieldGender').value,
+                yearCourse: document.getElementById('fieldYear').value,
+                section: document.getElementById('fieldSection').value,
+                contact: document.getElementById('fieldContact').value.trim(),
+                email: document.getElementById('fieldEmail').value.trim(),
+            };
+
+            loadingStatusText.textContent = "ENCRYPTING REGISTRATION DATA...";
+            loadingProgressBar.style.width = "30%";
+
+            try {
+                loadingStatusText.textContent = "SAVING TO GOOGLE SHEETS...";
+                loadingProgressBar.style.width = "65%";
+
+                if (SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
+                    fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload),
+                    }).catch(err => console.error("Sheet Sync Warning:", err));
+                }
+
+                // Increment dynamic registration counter for index.html
+                if (GENDER_SPLIT_LIMITS[eventName]) {
+                    const g = document.getElementById('fieldGender').value;
+                    const key = 'count_' + eventName + '-' + g;
+                    const cur = parseInt(localStorage.getItem(key) || '0');
+                    localStorage.setItem(key, cur + 1);
+                }
+                const currentLocal = parseInt(localStorage.getItem('count_' + eventName) || '0');
+                localStorage.setItem('count_' + eventName, currentLocal + 1);
+
+                await new Promise(r => setTimeout(r, 500));
+                loadingProgressBar.style.width = "100%";
+                loadingStatusText.textContent = "REGISTRATION CONFIRMED!";
+                await new Promise(r => setTimeout(r, 300));
+
+                loadingModal.classList.add('hidden');
+                loadingModal.classList.remove('flex');
+
+                showSuccess(payload);
+
+            } catch (err) {
+                console.error(err);
+                loadingModal.classList.add('hidden');
+                loadingModal.classList.remove('flex');
+                document.getElementById('errorBanner').classList.add('show');
+                isSubmitting = false;
+                btn.disabled = false;
+            }
+        });
+
+        function showSuccess(payload) {
+            document.getElementById('formSection').style.display = 'none';
+            document.getElementById('successMsg').textContent =
+                `${payload.name} — you're registered for ${payload.event}. Good luck!`;
+            document.getElementById('successScreen').classList.add('show');
+        }
+
+        // ─── Re-validate on input ─────────────────────────────────────────────
+        document.querySelectorAll('.input-field').forEach(el => {
+            el.addEventListener('input', () => { el.style.borderColor = ''; });
+        });
+    </script>
+
+</body>
+
+</html>

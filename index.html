@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" style="">
+
+<head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>IT Intramurals Try-outs</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Geist:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+                rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet">
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "tertiary": "#ffffff",
+                                                "surface-variant": "#353535",
+                                                "inverse-on-surface": "#303030",
+                                                "inverse-surface": "#e2e2e2",
+                                                "outline-variant": "#444933",
+                                                "surface-container-low": "#1b1b1b",
+                                                "on-surface-variant": "#c4c9ac",
+                                                "surface-dim": "#131313",
+                                                "on-primary-fixed-variant": "#3c4d00",
+                                                "on-error": "#690005",
+                                                "secondary-fixed": "#e2e2e2",
+                                                "on-tertiary-container": "#656464",
+                                                "tertiary-fixed-dim": "#c8c6c5",
+                                                "primary-fixed": "#c3f400",
+                                                "outline": "#8e9379",
+                                                "on-primary-fixed": "#161e00",
+                                                "primary-fixed-dim": "#abd600",
+                                                "on-secondary-container": "#b4b5b5",
+                                                "secondary": "#c6c6c7",
+                                                "on-error-container": "#ffdad6",
+                                                "inverse-primary": "#506600",
+                                                "surface-bright": "#393939",
+                                                "on-tertiary": "#313030",
+                                                "primary-container": "#c3f400",
+                                                "on-tertiary-fixed": "#1c1b1b",
+                                                "surface": "#131313",
+                                                "surface-container-lowest": "#0e0e0e",
+                                                "on-surface": "#e2e2e2",
+                                                "background": "#131313",
+                                                "on-primary-container": "#556d00",
+                                                "secondary-container": "#454747",
+                                                "on-background": "#e2e2e2",
+                                                "surface-container-high": "#2a2a2a",
+                                                "error": "#ffb4ab",
+                                                "surface-container-highest": "#353535",
+                                                "secondary-fixed-dim": "#c6c6c7",
+                                                "on-secondary-fixed-variant": "#454747",
+                                                "tertiary-container": "#e5e2e1",
+                                                "error-container": "#93000a",
+                                                "surface-container": "#1f1f1f",
+                                                "on-secondary": "#2f3131",
+                                                "on-primary": "#283500",
+                                                "surface-tint": "#abd600",
+                                                "primary": "#ffffff",
+                                                "on-tertiary-fixed-variant": "#474746",
+                                                "on-secondary-fixed": "#1a1c1c",
+                                                "tertiary-fixed": "#e5e2e1"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.25rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "margin-mobile": "20px",
+                                                "container-max": "1280px",
+                                                "gutter": "24px",
+                                                "margin-desktop": "64px",
+                                                "unit": "8px"
+                                        },
+                                        "fontFamily": {
+                                                "body-lg": [
+                                                        "Geist"
+                                                ],
+                                                "headline-lg": [
+                                                        "Space Grotesk"
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "Space Grotesk"
+                                                ],
+                                                "body-md": [
+                                                        "Geist"
+                                                ],
+                                                "label-mono": [
+                                                        "JetBrains Mono"
+                                                ],
+                                                "display-lg": [
+                                                        "Space Grotesk"
+                                                ],
+                                                "headline-xl": [
+                                                        "Space Grotesk"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "body-lg": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "28px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "40px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "headline-lg-mobile": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "body-md": [
+                                                        "16px",
+                                                        {
+                                                                "lineHeight": "24px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "label-mono": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "20px",
+                                                                "letterSpacing": "0.1em",
+                                                                "fontWeight": "500"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "72px",
+                                                        {
+                                                                "lineHeight": "80px",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ],
+                                                "headline-xl": [
+                                                        "48px",
+                                                        {
+                                                                "lineHeight": "56px",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <style>
+                /* Jersey-pattern canvas sits behind everything */
+                #jerseyCanvas {
+                        position: fixed;
+                        inset: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 0;
+                        pointer-events: none;
+                }
+
+                body {
+                        position: relative;
+                }
+
+                /* All direct children of body above the canvas */
+                body>*:not(#jerseyCanvas) {
+                        position: relative;
+                        z-index: 1;
+                }
+
+                .hex-bg {
+                        /* kept for card hover refs – transparent now */
+                        background-image: none;
+                }
+
+                .circuit-bg {
+                        background-image: none;
+                }
+
+                .brutal-border {
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .brutal-card {
+                        background-color: rgba(18, 18, 18, 0.75);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        backdrop-filter: blur(6px);
+                        transition: all 0.3s ease;
+                        /* Card itself is NOT a click target */
+                        cursor: default;
+                }
+
+                .brutal-card:hover {
+                        border-color: #CCFF00;
+                        box-shadow: inset 0 0 0 1px #CCFF00, 0 0 24px rgba(204, 255, 0, 0.08);
+                }
+
+                /* Decorative overlays must never block button clicks */
+                .brutal-card .hex-bg,
+                .brutal-card .circuit-bg,
+                .brutal-card [class*="absolute inset-0"],
+                .brutal-card>div[class*="absolute"] {
+                        pointer-events: none !important;
+                }
+
+                .btn-primary {
+                        background-color: #CCFF00;
+                        color: #000000;
+                        border-radius: 0;
+                        transition: all 0.2s ease;
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 10;
+                }
+
+                .btn-primary:hover {
+                        box-shadow: 0 0 15px rgba(204, 255, 0, 0.6);
+                }
+
+                /* Small text link buttons (academics section) */
+                .brutal-card button:not(.btn-primary) {
+                        cursor: pointer;
+                        position: relative;
+                        z-index: 10;
+                }
+
+                .input-brutal {
+                        background-color: #000000;
+                        border: none;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                        color: white;
+                        border-radius: 0;
+                        transition: border-color 0.2s;
+                }
+
+                .input-brutal:focus {
+                        outline: none;
+                        border-bottom-color: #CCFF00;
+                        box-shadow: none;
+                }
+        </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen relative overflow-x-hidden">
+        <!-- Jersey Pattern Background Canvas -->
+        <canvas id="jerseyCanvas"></canvas>
+        <script>
+                        (function () {
+                                const canvas = document.getElementById('jerseyCanvas');
+                                const ctx = canvas.getContext('2d');
+
+                                let W, H;
+                                let scrollY = window.scrollY;
+                                let targetScrollY = scrollY;
+                                let mouseX = 0, mouseY = 0;
+                                let targetMouseX = 0, targetMouseY = 0;
+
+                                window.addEventListener('scroll', () => {
+                                        targetScrollY = window.scrollY;
+                                }, { passive: true });
+
+                                window.addEventListener('mousemove', (e) => {
+                                        targetMouseX = (e.clientX - W / 2) * 0.08;
+                                        targetMouseY = (e.clientY - H / 2) * 0.08;
+                                }, { passive: true });
+
+                                function resize() {
+                                        W = canvas.width = window.innerWidth;
+                                        H = canvas.height = window.innerHeight;
+                                        init3DHexGrid();
+                                }
+                                window.addEventListener('resize', resize);
+
+                                let hexNodes = [];
+                                let hexEdges = [];
+                                let pulses = [];
+                                let particles = [];
+
+                                function init3DHexGrid() {
+                                        hexNodes = [];
+                                        hexEdges = [];
+                                        pulses = [];
+                                        particles = [];
+
+                                        const size = 52; // Hexagon radius
+                                        const hWidth = size * Math.sqrt(3);
+                                        const cols = Math.ceil((W * 1.6) / hWidth) + 4;
+                                        const rows = Math.ceil((H * 2.5) / (size * 1.5)) + 6;
+
+                                        let grid = [];
+
+                                        // 1. Create Hexagonal Grid Nodes in 3D Space
+                                        for (let r = -2; r < rows; r++) {
+                                                grid[r] = [];
+                                                for (let c = -2; c < cols; c++) {
+                                                        const x = (c + (r % 2 === 0 ? 0 : 0.5)) * hWidth - (W * 0.3);
+                                                        const y = r * size * 1.5 - (H * 0.2);
+                                                        const z = Math.sin(r * 0.35 + c * 0.35) * 35; // 3D wave
+
+                                                        const node = {
+                                                                baseX: x,
+                                                                baseY: y,
+                                                                baseZ: z,
+                                                                pulse: Math.random() * Math.PI * 2
+                                                        };
+                                                        grid[r][c] = hexNodes.length;
+                                                        hexNodes.push(node);
+                                                }
+                                        }
+
+                                        // 2. Build Hexagonal Edges (Chains)
+                                        const rowKeys = Object.keys(grid).map(Number).sort((a, b) => a - b);
+                                        for (let rIdx = 0; rIdx < rowKeys.length; rIdx++) {
+                                                const r = rowKeys[rIdx];
+                                                const colKeys = Object.keys(grid[r]).map(Number).sort((a, b) => a - b);
+                                                for (let cIdx = 0; cIdx < colKeys.length; cIdx++) {
+                                                        const c = colKeys[cIdx];
+                                                        const curr = grid[r][c];
+
+                                                        // Horizontal edge
+                                                        if (grid[r] && grid[r][c + 1] !== undefined) {
+                                                                hexEdges.push([curr, grid[r][c + 1]]);
+                                                        }
+
+                                                        // Diagonal edges to form hexagons
+                                                        const offset = (Math.abs(r) % 2 === 0) ? 0 : 1;
+                                                        if (grid[r + 1]) {
+                                                                if (grid[r + 1][c - 1 + offset] !== undefined) {
+                                                                        hexEdges.push([curr, grid[r + 1][c - 1 + offset]]);
+                                                                }
+                                                                if (grid[r + 1][c + offset] !== undefined) {
+                                                                        hexEdges.push([curr, grid[r + 1][c + offset]]);
+                                                                }
+                                                        }
+                                                }
+                                        }
+
+                                        // 3. Glowing Pulses moving across hex chains
+                                        for (let i = 0; i < 35; i++) {
+                                                pulses.push({
+                                                        edgeIdx: Math.floor(Math.random() * hexEdges.length),
+                                                        progress: Math.random(),
+                                                        speed: 0.004 + Math.random() * 0.008,
+                                                        isGold: Math.random() < 0.75
+                                                });
+                                        }
+
+                                        // 4. Floating glowing particles
+                                        for (let i = 0; i < 90; i++) {
+                                                particles.push({
+                                                        x: (Math.random() - 0.5) * W * 1.5,
+                                                        y: Math.random() * H * 2 - H * 0.5,
+                                                        z: (Math.random() - 0.5) * 300,
+                                                        size: 1 + Math.random() * 2.5,
+                                                        vy: -0.2 - Math.random() * 0.5,
+                                                        pulse: Math.random() * Math.PI * 2
+                                                });
+                                        }
+                                }
+
+                                let time = 0;
+
+                                function draw() {
+                                        time += 0.012;
+                                        // Smooth interpolation for scroll and mouse
+                                        scrollY += (targetScrollY - scrollY) * 0.08;
+                                        mouseX += (targetMouseX - mouseX) * 0.05;
+                                        mouseY += (targetMouseY - mouseY) * 0.05;
+
+                                        ctx.clearRect(0, 0, W, H);
+
+                                        // ── Base Dark Gradient ──
+                                        const bgGrad = ctx.createRadialGradient(
+                                                W * 0.5 + mouseX, H * 0.3 + mouseY, 0,
+                                                W * 0.5, H * 0.5, W * 0.95
+                                        );
+                                        bgGrad.addColorStop(0, '#060703');
+                                        bgGrad.addColorStop(0.5, '#0c0e07');
+                                        bgGrad.addColorStop(0.85, '#12140a');
+                                        bgGrad.addColorStop(1, '#161711');
+                                        ctx.fillStyle = bgGrad;
+                                        ctx.fillRect(0, 0, W, H);
+
+                                        // ── Side Panels Vignette ──
+                                        const leftV = ctx.createLinearGradient(0, 0, W * 0.25, 0);
+                                        leftV.addColorStop(0, 'rgba(0,0,0,0.8)');
+                                        leftV.addColorStop(1, 'transparent');
+                                        ctx.fillStyle = leftV;
+                                        ctx.fillRect(0, 0, W * 0.25, H);
+
+                                        const rightV = ctx.createLinearGradient(W, 0, W * 0.75, 0);
+                                        rightV.addColorStop(0, 'rgba(0,0,0,0.8)');
+                                        rightV.addColorStop(1, 'transparent');
+                                        ctx.fillStyle = rightV;
+                                        ctx.fillRect(W * 0.75, 0, W * 0.25, H);
+
+                                        // ── 3D Projection & Camera Setup ──
+                                        const fov = 500;
+                                        const centerX = W / 2 + mouseX;
+                                        const centerY = H / 2 + mouseY;
+
+                                        // Scroll controls rotation tilt & vertical position
+                                        const rotX = 0.32 + (scrollY * 0.00035); // tilts forward as you scroll down
+                                        const rotY = Math.sin(time * 0.25) * 0.06 + (mouseX * 0.0004);
+                                        const scrollShiftY = (scrollY * 0.45); // move grid upwards as you scroll
+
+                                        const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+                                        const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+
+                                        const projectedNodes = new Array(hexNodes.length);
+
+                                        // Calculate projected positions of all hex nodes
+                                        for (let i = 0; i < hexNodes.length; i++) {
+                                                const n = hexNodes[i];
+                                                const waveZ = Math.sin(time * 1.4 + n.baseX * 0.008 + n.baseY * 0.008) * 18;
+
+                                                let px = n.baseX - W / 2;
+                                                let py = n.baseY - H / 2 - scrollShiftY;
+                                                // Loop vertical positions endlessly for infinite scroll feel
+                                                py = ((py + H) % (H * 1.8)) - H * 0.8;
+                                                let pz = n.baseZ + waveZ;
+
+                                                // 3D Rotations
+                                                let x1 = px * cosY - pz * sinY;
+                                                let z1 = px * sinY + pz * cosY;
+
+                                                let y2 = py * cosX - z1 * sinX;
+                                                let z2 = py * sinX + z1 * cosX;
+
+                                                const scale = fov / (fov + z2 + 250);
+                                                const projX = centerX + x1 * scale;
+                                                const projY = centerY + y2 * scale;
+
+                                                projectedNodes[i] = {
+                                                        x: projX,
+                                                        y: projY,
+                                                        z: z2,
+                                                        scale: scale,
+                                                        pulse: 0.5 + 0.5 * Math.sin(time * 2 + n.pulse)
+                                                };
+                                        }
+
+                                        // ── Draw 3D Hexagon Mesh Edges (Chains) ──
+                                        for (let i = 0; i < hexEdges.length; i++) {
+                                                const [aIdx, bIdx] = hexEdges[i];
+                                                const pA = projectedNodes[aIdx];
+                                                const pB = projectedNodes[bIdx];
+
+                                                if (!pA || !pB) continue;
+                                                // Skip wrapping edge artifact lines
+                                                if (Math.abs(pA.x - pB.x) > W * 0.5 || Math.abs(pA.y - pB.y) > H * 0.5) continue;
+
+                                                const avgScale = (pA.scale + pB.scale) * 0.5;
+                                                const edgePulse = (pA.pulse + pB.pulse) * 0.5;
+
+                                                // High-contrast neon gold opacity (never 0!)
+                                                const alpha = Math.max(0.12, Math.min(0.55, 0.22 * avgScale * (0.7 + edgePulse * 0.4)));
+
+                                                ctx.beginPath();
+                                                ctx.moveTo(pA.x, pA.y);
+                                                ctx.lineTo(pB.x, pB.y);
+                                                ctx.strokeStyle = `rgba(204, 255, 0, ${alpha})`;
+                                                ctx.lineWidth = Math.max(0.6, 1.4 * avgScale);
+                                                ctx.stroke();
+                                        }
+
+                                        // ── Draw Circuit Pulses ──
+                                        for (let i = 0; i < pulses.length; i++) {
+                                                const p = pulses[i];
+                                                p.progress += p.speed;
+                                                if (p.progress >= 1) {
+                                                        p.progress = 0;
+                                                        p.edgeIdx = Math.floor(Math.random() * hexEdges.length);
+                                                }
+
+                                                const [aIdx, bIdx] = hexEdges[p.edgeIdx];
+                                                const pA = projectedNodes[aIdx];
+                                                const pB = projectedNodes[bIdx];
+
+                                                if (pA && pB && Math.abs(pA.x - pB.x) < W * 0.5 && Math.abs(pA.y - pB.y) < H * 0.5) {
+                                                        const curX = pA.x + (pB.x - pA.x) * p.progress;
+                                                        const curY = pA.y + (pB.y - pA.y) * p.progress;
+                                                        const scale = (pA.scale + pB.scale) * 0.5;
+                                                        const r = Math.max(1.2, 3.2 * scale);
+
+                                                        ctx.beginPath();
+                                                        ctx.arc(curX, curY, r, 0, Math.PI * 2);
+                                                        ctx.fillStyle = p.isGold ? '#CCFF00' : '#FFFFFF';
+                                                        ctx.shadowColor = '#CCFF00';
+                                                        ctx.shadowBlur = 10;
+                                                        ctx.fill();
+                                                        ctx.shadowBlur = 0;
+                                                }
+                                        }
+
+                                        // ── Draw Hexagon Junction Nodes ──
+                                        for (let i = 0; i < projectedNodes.length; i += 2) {
+                                                const p = projectedNodes[i];
+                                                if (!p) continue;
+                                                const alpha = Math.max(0.15, Math.min(0.85, 0.35 * p.scale * p.pulse));
+                                                const r = Math.max(1.0, 2.5 * p.scale);
+
+                                                ctx.beginPath();
+                                                ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+                                                ctx.fillStyle = `rgba(204, 255, 0, ${alpha})`;
+                                                ctx.fill();
+                                        }
+
+                                        // ── Draw Floating Parallax Data Particles ──
+                                        for (let i = 0; i < particles.length; i++) {
+                                                const pt = particles[i];
+                                                pt.y += pt.vy;
+                                                if (pt.y < -H * 0.5) pt.y = H * 1.5;
+
+                                                const py = pt.y - (scrollY * 0.2);
+                                                const scale = fov / (fov + pt.z + 250);
+                                                const px = centerX + pt.x * scale;
+                                                const pyProj = centerY + (py - H / 2) * scale;
+
+                                                if (scale > 0 && px >= -50 && px <= W + 50 && pyProj >= -50 && pyProj <= H + 50) {
+                                                        const alpha = 0.25 + 0.65 * Math.sin(time * 2.5 + pt.pulse);
+                                                        ctx.beginPath();
+                                                        ctx.arc(px, pyProj, Math.max(0.6, pt.size * scale), 0, Math.PI * 2);
+                                                        ctx.fillStyle = (i % 3 === 0) ? `rgba(255,255,255,${alpha * 0.7})` : `rgba(204,255,0,${alpha * 0.85})`;
+                                                        ctx.fill();
+                                                }
+                                        }
+
+                                        requestAnimationFrame(draw);
+                                }
+
+                                resize();
+                                draw();
+                        }());
+        </script>
+        <!-- Top Navigation -->
+        <header
+                class="bg-background/90 backdrop-blur-md full-width top-0 sticky z-50 border-b border-white/10 flat no shadows">
+                <div
+                        class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+                        <div class="flex items-center gap-3">
+                                <img src="images/IT_LOGO.png" alt="IT Logo"
+                                        style="width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(204,255,0,0.5));">
+                                <div class="font-headline-lg text-primary-fixed tracking-tighter uppercase">INFORMATION
+                                        TECHNOLOGY DEPARTMENT</div>
+                        </div>
+                        <nav class="hidden md:flex gap-8 ml-auto">
+                                <a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-mono text-label-mono"
+                                        href="#events">EVENTS</a>
+                                <a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-mono text-label-mono"
+                                        href="#sports">SPORTS &amp; ESPORTS</a>
+                                <a class="text-on-surface-variant hover:text-primary-fixed transition-colors font-label-mono text-label-mono"
+                                        href="#academics">ACADEMICS</a>
+                        </nav>
+                        <div class="flex items-center gap-4"></div>
+                </div>
+        </header>
+        <!-- Hero Section -->
+        <section class="relative pt-20 sm:pt-32 pb-16 sm:pb-24 overflow-hidden border-b border-white/10">
+                <div class="absolute inset-0 circuit-bg opacity-10"></div>
+                <div
+                        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 flex flex-col items-start gap-6 sm:gap-8">
+                        <div
+                                class="inline-flex items-center gap-2 border border-primary-fixed/30 bg-primary-fixed/10 px-3 sm:px-4 py-1">
+                                <span class="w-2 h-2 bg-primary-fixed rounded-none animate-pulse"></span>
+                                <span
+                                        class="font-label-mono text-xs sm:text-label-mono text-primary-fixed uppercase tracking-widest">Online</span>
+                        </div>
+                        <h1
+                                class="font-display-lg text-4xl sm:text-6xl md:text-7xl lg:text-[76px] text-white max-w-4xl tracking-tighter uppercase leading-[1.05] sm:leading-none break-words w-full">
+                                IT WIZARDS<br>
+                                <span class="text-primary-fixed">INTRAMURALS</span><br>
+                                REGISTRATION
+                        </h1>
+                </div>
+        </section>
+        <!-- Main Content -->
+        <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 flex flex-col gap-32">
+                <!-- 1. EVENTS -->
+                <section class="relative" id="events">
+                        <div class="flex items-end gap-4 mb-12 border-b border-white/10 pb-4">
+                                <h2 class="font-headline-xl text-headline-xl text-white uppercase tracking-tighter">
+                                        Events</h2>
+
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Mr. & Ms Intramurals -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        PAGEANT</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Mr. &amp; Ms Intramurals</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Mr. &amp; Ms Intramurals">0
+                                                                REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Mr. &amp; Ms Intramurals')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Mr. &amp; Ms Intramurals')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Yell Competition -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        TEAM</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Yell Competition</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Yell Competition">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Yell Competition')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Yell Competition')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Parade Delegates -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        MARCH</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Parade Delegates</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Parade Delegates">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Parade Delegates')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Parade Delegates')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Folk Dance -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        DANCE</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Folk Dance</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Folk Dance">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Folk Dance')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Folk Dance')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Hip Hop -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        DANCE</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Hip Hop</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Hip Hop">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Hip Hop')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Hip Hop')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Vocal Competition -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        MUSIC</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Vocal Competition</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Vocal Competition">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Vocal Competition')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Vocal Competition')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Department Arch Competition -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        DESIGN</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Arch Competition</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Department Arch Competition">0
+                                                                REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        onclick="goRegister('Department Arch Competition')">Register</button>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Department Arch Competition')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+                <!-- 2. SPORTS & ESPORTS -->
+                <section class="relative" id="sports">
+                        <div class="flex items-end gap-4 mb-12 border-b border-white/10 pb-4">
+                                <h2 class="font-headline-xl text-headline-xl text-white uppercase tracking-tighter">
+                                        SPORTS &amp; E-SPORTS</h2>
+
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Volleyball -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        COURT</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Volleyball</h3>
+                                                <div
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex flex-col gap-1">
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="vbMaleCount">BOYS: 0/30</span>
+                                                        </span>
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="vbFemaleCount">GIRLS: 0/30</span>
+                                                        </span>
+                                                </div>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        id="vbRegisterBtn"
+                                                        onclick="goRegister('Volleyball')">Register</button>
+                                                <span class="font-label-mono text-[11px] uppercase hidden"
+                                                        id="vbUnavailableBadge"
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        UNAVAILABLE</span>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Volleyball')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Basketball -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        COURT</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Basketball</h3>
+                                                <p
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
+                                                        <span
+                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span id="bbCount">BOYS: 0/30 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        id="bbRegisterBtn"
+                                                        onclick="goRegister('Basketball')">Register</button>
+                                                <span class="font-label-mono text-[11px] uppercase hidden"
+                                                        id="bbUnavailableBadge"
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        UNAVAILABLE</span>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Basketball')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Badminton -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        RACKET</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Badminton</h3>
+                                                <div
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex flex-col gap-1">
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="bmMaleCount">BOYS: 0/10</span>
+                                                        </span>
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="bmFemaleCount">GIRLS: 0/10</span>
+                                                        </span>
+                                                </div>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        id="bmRegisterBtn"
+                                                        onclick="goRegister('Badminton')">Register</button>
+                                                <span class="font-label-mono text-[11px] uppercase hidden"
+                                                        id="bmUnavailableBadge"
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        UNAVAILABLE</span>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Badminton')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Pickleball -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        RACKET</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Pickleball</h3>
+                                                <div
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex flex-col gap-1">
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="pbMaleCount">BOYS: 0/10</span>
+                                                        </span>
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="pbFemaleCount">GIRLS: 0/10</span>
+                                                        </span>
+                                                </div>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        id="pbRegisterBtn"
+                                                        onclick="goRegister('Pickleball')">Register</button>
+                                                <span class="font-label-mono text-[11px] uppercase hidden"
+                                                        id="pbUnavailableBadge"
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        UNAVAILABLE</span>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Pickleball')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <!-- E-sports -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden border-primary-fixed/50">
+                                        <div class="absolute inset-0 circuit-bg opacity-20"></div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-primary-fixed mb-2 block text-xs">TYPE:
+                                                        DIGITAL</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        MOBILE LEGENDS</h3>
+                                                <div
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex flex-col gap-1">
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="mlMaleCount">MALE: 0/8 TEAMS</span>
+                                                        </span>
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="mlFemaleCount">FEMALE: 0/4 TEAMS</span>
+                                                        </span>
+                                                </div>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        id="mlRegisterBtn"
+                                                        onclick="window.location.href='register-ml.html'">Register</button>
+                                                <span class="font-label-mono text-[11px] uppercase hidden"
+                                                        id="mlUnavailableBadge"
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        UNAVAILABLE</span>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('E-sports')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Table Tennis -->
+                                <div
+                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
+                                                        TABLE</span>
+                                                <h3
+                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
+                                                        Table Tennis</h3>
+                                                <div
+                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex flex-col gap-1">
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="ttMaleCount">BOYS: 0/10</span>
+                                                        </span>
+                                                        <span class="flex items-center gap-1.5">
+                                                                <span
+                                                                        class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                                <span id="ttFemaleCount">GIRLS: 0/10</span>
+                                                        </span>
+                                                </div>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                        id="ttRegisterBtn"
+                                                        onclick="goRegister('Table Tennis')">Register</button>
+                                                <span class="font-label-mono text-[11px] uppercase hidden"
+                                                        id="ttUnavailableBadge"
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        UNAVAILABLE</span>
+                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
+                                                        title="View Facilitators"
+                                                        onclick="openFacilitatorModal('Table Tennis')">
+                                                        <span
+                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
+                                                        <span
+                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
+                                                </div>
+                                        </div>
+                                </div>
+                </section>
+                <!-- 3. ACADEMICS -->
+                <section class="relative" id="academics">
+                        <div class="flex items-end gap-4 mb-12 border-b border-white/10 pb-4">
+                                <h2 class="font-headline-xl text-headline-xl text-white uppercase tracking-tighter">
+                                        ACADEMICS</h2>
+
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <!-- Impromptu Speaking -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ORAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Impromptu Speaking</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Impromptu Speaking">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Impromptu Speaking')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Impromptu Speaking')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Ballak -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ORAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Ballak</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Ballak">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Ballak')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Ballak')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Sangka sa Pamulong -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ORAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Sangka sa Pamulong</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Sangka sa Pamulong">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Sangka sa Pamulong')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Sangka sa Pamulong')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Declamation -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ORAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Declamation</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Declamation">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Declamation')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Declamation')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Essay Writing -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">WRITTEN</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Essay Writing</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Essay Writing">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Essay Writing')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Essay Writing')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Math Quiz Bowl -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ANALYTICAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Math Quiz Bowl</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Math Quiz Bowl">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Math Quiz Bowl')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Math Quiz Bowl')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Oration -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ORAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Oration</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Oration">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Oration')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Oration')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Sudoku -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">LOGIC</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Sudoku</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Sudoku">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Sudoku')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Sudoku')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Chess -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden border-primary-fixed/30">
+                                        <div class="absolute inset-0 circuit-bg opacity-10"></div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-primary-fixed text-[10px] block mb-1">STRATEGY</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Chess</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Chess">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Chess')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Chess')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Spelling Contest -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">LINGUISTIC</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Spelling Contest</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Spelling Contest">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Spelling Contest')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Spelling Contest')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Scrabble -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">LINGUISTIC</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Scrabble</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Scrabble">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Scrabble')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Scrabble')">support_agent</span>
+                                        </div>
+                                </div>
+                                <!-- Sungka -->
+                                <div
+                                        class="brutal-card p-4 flex flex-col justify-between h-40 group relative overflow-hidden">
+                                        <div
+                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
+                                        </div>
+                                        <div class="relative z-10">
+                                                <span
+                                                        class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">TRADITIONAL</span>
+                                                <h4
+                                                        class="font-body-lg text-body-lg text-white font-bold leading-tight">
+                                                        Sungka</h4>
+                                                <p
+                                                        class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
+                                                        <span
+                                                                class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
+                                                        <span data-event-count="Sungka">0 REGISTERED</span>
+                                                </p>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
+                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
+                                                        onclick="goRegister('Sungka')">Register <span
+                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                                <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
+                                                        title="View Facilitator"
+                                                        onclick="openFacilitatorModal('Sungka')">support_agent</span>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-surface-container-lowest full-width bottom-0 border-t border-white/10 mt-24">
+                <div
+                        class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-8 gap-gutter max-w-container-max mx-auto">
+                        <div class="font-headline-lg text-primary-fixed">IT DEPARTMENT</div>
+                        <div class="flex flex-wrap justify-center gap-6">
+                                <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-mono text-label-mono hover:underline decoration-primary-fixed decoration-2 underline-offset-4"
+                                        href="#">Terms of Service</a>
+                                <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-mono text-label-mono hover:underline decoration-primary-fixed decoration-2 underline-offset-4"
+                                        href="#">Privacy Protocol</a>
+                                <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-mono text-label-mono hover:underline decoration-primary-fixed decoration-2 underline-offset-4"
+                                        href="#">Department Site</a>
+                                <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-mono text-label-mono hover:underline decoration-primary-fixed decoration-2 underline-offset-4"
+                                        href="#">Contact Support</a>
+                        </div>
+                        <div class="font-body-md text-body-md text-on-surface-variant">
+                                © 202X IT DEPARTMENT. BUILT ON LOGIC.
+                        </div>
+                </div>
+        </footer>
+        <script>
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyB4xhZO7Px_be_IY_2yZF6BTEiHv0jnUimXDgSWJELK3NwoA7tuCTyRXnZ793lexeK1g/exec';
+
+                function goRegister(eventName) {
+                        window.location.href = 'register.html?event=' + encodeURIComponent(eventName);
+                }
+
+                async function updateLiveRegistrationCounts() {
+                        const countElements = document.querySelectorAll('[data-event-count]');
+
+                        // 1. Instant update from localStorage
+                        countElements.forEach(el => {
+                                const eventName = el.getAttribute('data-event-count');
+                                const localCount = parseInt(localStorage.getItem('count_' + eventName) || '0');
+                                el.textContent = `${localCount} REGISTERED`;
+                        });
+
+                        // 2. Fetch live count from Google Sheets Apps Script API
+                        if (SCRIPT_URL && SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
+                                try {
+                                        const res = await fetch(SCRIPT_URL);
+                                        const data = await res.json();
+
+                                        if (data && data.result === 'success' && data.counts) {
+                                                countElements.forEach(el => {
+                                                        const eventName = el.getAttribute('data-event-count');
+                                                        let sheetCount = 0;
+
+                                                        Object.keys(data.counts).forEach(sheetName => {
+                                                                const sLower = sheetName.toLowerCase();
+                                                                const eLower = eventName.toLowerCase();
+
+                                                                if (sLower === eLower ||
+                                                                        (eLower === 'mr. & ms intramurals' && (sLower === 'mr. intramurals' || sLower === 'ms. intramurals')) ||
+                                                                        (eLower === 'volleyball' && (sLower === 'volleyball - male' || sLower === 'volleyball - female')) ||
+                                                                        (eLower === 'chess' && (sLower === 'chess - male' || sLower === 'chess - female'))) {
+                                                                        sheetCount += data.counts[sheetName];
+                                                                }
+                                                        });
+
+                                                        const localCount = parseInt(localStorage.getItem('count_' + eventName) || '0');
+                                                        const total = Math.max(sheetCount, localCount);
+                                                        el.textContent = `${total} REGISTERED`;
+                                                });
+                                        }
+                                } catch (err) {
+                                        console.log("Syncing with local storage registration count.");
+                                }
+                        }
+                }
+
+                // ── Shared live-count fetch (one network call, reused by all cap checks) ──
+                let _liveCountsCache = null;
+                async function fetchLiveCounts() {
+                        if (_liveCountsCache) return _liveCountsCache;
+                        if (!SCRIPT_URL || SCRIPT_URL === 'PASTE_YOUR_SCRIPT_URL_HERE') return null;
+                        try {
+                                const res = await fetch(SCRIPT_URL);
+                                const data = await res.json();
+                                if (data && data.result === 'success' && data.counts) {
+                                        _liveCountsCache = data.counts;
+                                        return _liveCountsCache;
+                                }
+                        } catch (err) {
+                                console.log('Could not reach live sheet.');
+                        }
+                        return null;
+                }
+
+                function findCount(counts, tabName) {
+                        if (!counts) return null;
+                        const target = tabName.toLowerCase();
+                        for (const name in counts) {
+                                if (name.toLowerCase() === target) return counts[name];
+                        }
+                        return null;
+                }
+
+                // ── Mobile Legends (Male 8 teams / Female 4 teams) ──
+                const ML_LIMITS = { Male: 8, Female: 4 };
+
+                async function updateMobileLegendsCounts() {
+                        const maleEl = document.getElementById('mlMaleCount');
+                        const femaleEl = document.getElementById('mlFemaleCount');
+                        const btn = document.getElementById('mlRegisterBtn');
+                        const badge = document.getElementById('mlUnavailableBadge');
+                        if (!maleEl || !femaleEl) return;
+
+                        let maleCount = 0, femaleCount = 0, gotLiveData = false;
+
+                        if (SCRIPT_URL && SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
+                                try {
+                                        const res = await fetch(SCRIPT_URL);
+                                        const data = await res.json();
+                                        if (data && data.result === 'success' && data.counts) {
+                                                Object.keys(data.counts).forEach(name => {
+                                                        const n = name.toLowerCase();
+                                                        if (n === 'mobile legends - male') { maleCount = data.counts[name]; gotLiveData = true; }
+                                                        if (n === 'mobile legends - female') { femaleCount = data.counts[name]; gotLiveData = true; }
+                                                });
+                                        }
+                                } catch (err) {
+                                        console.log('Could not reach live sheet, falling back to local cache.');
+                                }
+                        }
+
+                        if (!gotLiveData) {
+                                maleCount = parseInt(localStorage.getItem('count_E-sports-Male') || '0');
+                                femaleCount = parseInt(localStorage.getItem('count_E-sports-Female') || '0');
+                        }
+
+                        maleEl.textContent = `MALE: ${maleCount}/${ML_LIMITS.Male} TEAMS`;
+                        femaleEl.textContent = `FEMALE: ${femaleCount}/${ML_LIMITS.Female} TEAMS`;
+
+                        const isFull = maleCount >= ML_LIMITS.Male && femaleCount >= ML_LIMITS.Female;
+                        if (btn && badge) {
+                                btn.classList.toggle('hidden', isFull);
+                                badge.classList.toggle('hidden', !isFull);
+                        }
+                }
+
+                // ── Basketball (Boys only, cap 30) ──
+                async function updateBasketballCount() {
+                        const el = document.getElementById('bbCount');
+                        if (!el) return;
+                        const btn = document.getElementById('bbRegisterBtn');
+                        const badge = document.getElementById('bbUnavailableBadge');
+                        const limit = 30;
+
+                        const counts = await fetchLiveCounts();
+                        let count = findCount(counts, 'Basketball');
+                        if (count === null) count = parseInt(localStorage.getItem('count_Basketball') || '0');
+
+                        el.textContent = `BOYS: ${count}/${limit} REGISTERED`;
+                        const isFull = count >= limit;
+                        if (btn && badge) { btn.classList.toggle('hidden', isFull); badge.classList.toggle('hidden', !isFull); }
+                }
+
+                // ── Gender-split events: Volleyball (30/30), Table Tennis (10/10), Badminton (10/10), Pickleball (10/10) ──
+                const GENDER_SPLIT_CARD_EVENTS = {
+                        'Volleyball': { limit: 30, maleEl: 'vbMaleCount', femaleEl: 'vbFemaleCount', btn: 'vbRegisterBtn', badge: 'vbUnavailableBadge' },
+                        'Table Tennis': { limit: 10, maleEl: 'ttMaleCount', femaleEl: 'ttFemaleCount', btn: 'ttRegisterBtn', badge: 'ttUnavailableBadge' },
+                        'Badminton': { limit: 10, maleEl: 'bmMaleCount', femaleEl: 'bmFemaleCount', btn: 'bmRegisterBtn', badge: 'bmUnavailableBadge' },
+                        'Pickleball': { limit: 10, maleEl: 'pbMaleCount', femaleEl: 'pbFemaleCount', btn: 'pbRegisterBtn', badge: 'pbUnavailableBadge' },
+                };
+
+                async function updateGenderSplitCounts() {
+                        const counts = await fetchLiveCounts();
+                        for (const evt in GENDER_SPLIT_CARD_EVENTS) {
+                                const cfg = GENDER_SPLIT_CARD_EVENTS[evt];
+                                const maleEl = document.getElementById(cfg.maleEl);
+                                const femaleEl = document.getElementById(cfg.femaleEl);
+                                if (!maleEl || !femaleEl) continue;
+                                const btn = document.getElementById(cfg.btn);
+                                const badge = document.getElementById(cfg.badge);
+
+                                let maleCount = findCount(counts, evt + ' - Male');
+                                let femaleCount = findCount(counts, evt + ' - Female');
+                                if (maleCount === null) maleCount = parseInt(localStorage.getItem('count_' + evt + '-Male') || '0');
+                                if (femaleCount === null) femaleCount = parseInt(localStorage.getItem('count_' + evt + '-Female') || '0');
+
+                                maleEl.textContent = `BOYS: ${maleCount}/${cfg.limit}`;
+                                femaleEl.textContent = `GIRLS: ${femaleCount}/${cfg.limit}`;
+                                const isFull = maleCount >= cfg.limit && femaleCount >= cfg.limit;
+                                if (btn && badge) { btn.classList.toggle('hidden', isFull); badge.classList.toggle('hidden', !isFull); }
+                        }
+                }
+
+                document.addEventListener('DOMContentLoaded', updateMobileLegendsCounts);
+                document.addEventListener('DOMContentLoaded', updateBasketballCount);
+                document.addEventListener('DOMContentLoaded', updateGenderSplitCounts);
+                document.addEventListener('DOMContentLoaded', updateLiveRegistrationCounts);
+        </script>
+        <!-- ===== FACILITATOR SLIDESHOW MODAL ===== -->
+        <div id="facModal"
+                style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);"
+                onclick="closeFacModal(event)">
+                <div id="facModalBox"
+                        style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(480px,90vw);background:#0a0a0a;border:1px solid #CCFF00;box-shadow:0 0 60px rgba(204,255,0,0.18),0 0 0 1px rgba(204,255,0,0.08);padding:0;overflow:hidden;"
+                        onclick="event.stopPropagation()">
+                        <!-- Header -->
+                        <div
+                                style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px 14px;border-bottom:1px solid rgba(204,255,0,0.15);">
+                                <div>
+                                        <p
+                                                style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:0.18em;color:#CCFF00;text-transform:uppercase;margin:0 0 2px;">
+                                                FACILITATOR</p>
+                                        <h3 id="facModalTitle"
+                                                style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.04em;margin:0;">
+                                        </h3>
+                                </div>
+                                <button onclick="closeFacModalBtn()"
+                                        style="background:none;border:1px solid rgba(204,255,0,0.3);color:#CCFF00;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;transition:background .2s;"
+                                        onmouseover="this.style.background='rgba(204,255,0,0.12)'"
+                                        onmouseout="this.style.background='none'">&times;</button>
+                        </div>
+                        <!-- Slideshow Stage -->
+                        <div
+                                style="position:relative;padding:36px 24px 28px;min-height:260px;display:flex;align-items:center;justify-content:center;">
+                                <!-- Prev Arrow -->
+                                <button id="facPrev" onclick="slideFac(-1)"
+                                        style="position:absolute;left:6px;top:50%;transform:translateY(-50%);background:none;border:none;color:#CCFF00;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:28px;z-index:2;opacity:0.7;transition:opacity .2s;"
+                                        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                                        &#8249;
+                                </button>
+                                <!-- Slide Container -->
+                                <div id="facSlide"
+                                        style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:opacity 0.3s ease,transform 0.3s ease;">
+                                        <div id="facAvatarWrap"
+                                                style="width:160px;height:210px;border-radius:8px;overflow:hidden;border:3px solid #CCFF00;box-shadow:0 0 32px rgba(204,255,0,0.35),inset 0 0 16px rgba(0,0,0,0.6);">
+                                                <img id="facAvatar" src="" alt=""
+                                                        style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+                                        </div>
+                                        <div>
+                                                <p id="facName"
+                                                        style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;">
+                                                </p>
+                                                <p id="facCounter"
+                                                        style="font-family:'Space Mono',monospace;font-size:11px;color:#CCFF00;letter-spacing:0.12em;margin:0;">
+                                                </p>
+                                        </div>
+                                </div>
+                                <!-- Next Arrow -->
+                                <button id="facNext" onclick="slideFac(1)"
+                                        style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;color:#CCFF00;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:28px;z-index:2;opacity:0.7;transition:opacity .2s;"
+                                        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                                        &#8250;
+                                </button>
+                        </div>
+                        <!-- Dot Navigation -->
+                        <div id="facDots" style="display:flex;justify-content:center;gap:8px;padding:0 24px 24px;">
+                        </div>
+                </div>
+        </div>
+
+        <script>
+                /* ===== FACILITATOR MODAL SLIDESHOW ===== */
+                const FACILITATORS_MAP = {
+                        /* ── EVENTS ── */
+                        'Mr. & Ms Intramurals': [{ name: 'Hazel Queen Quibol', img: 'Hazel.png' }, { name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg' }, { name: 'En Catarungan', img: 'images/En.png' }],
+                        'Yell Competition': [{ name: 'Charles Bacotot', img: 'images/Charles.jpg' }],
+                        'Parade Delegates': [{ name: 'Hazel Queen Quibol', img: 'images/Hazel.png' }, { name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg' }, { name: 'En Catarungan', img: 'images/En.png' }],
+                        'Folk Dance': [{ name: 'Sergie Arrojado', img: 'images/Sergie.jpg' }],
+                        'Hip Hop': [{ name: 'Jeorge Rey Mancilla', img: 'images/Jeorge.jpg' }],
+                        'Vocal Competition': [{ name: 'Hazel Queen Quibol', img: 'images/Hazel.png' }, { name: 'Vincent Cababan', img: 'images/Vincent.jpg' }],
+                        'Department Arch Competition': [{ name: 'Hazel Queen Quibol', img: 'images/Hazel.png' }, { name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg' }, { name: 'En Catarungan', img: 'images/En.png' }],
+                        /* ── SPORTS & E-SPORTS ── */
+                        'Volleyball': [{ name: 'Arnel L. Villanueva Jr.', img: 'images/arnel.png' }],
+                        'Basketball': [{ name: 'Raniel Jay Perandos', img: 'images/Raniel.jpg' }],
+                        'Badminton': [{ name: 'Yestin Roy Prado', img: 'images/Yestin.jpeg' }],
+                        'Pickleball': [{ name: 'Vincent Cababan', img: 'images/Vincent.jpg' }],
+                        'E-sports': [{ name: 'Jade Louis S. Cabucos', img: 'images/Jade.jpg' }],
+                        'Table Tennis': [{ name: 'Arjay Alangcas', img: 'images/Arjay.jpeg' }],
+                        /* ── ACADEMICS ── */
+                        'Impromptu Speaking': [{ name: 'Jeorge Rey Mancilla', img: 'images/Jeorge.jpg' }],
+                        'Ballak': [{ name: 'Vincent Cababan', img: 'images/Vincent.jpg' }],
+                        'Sangka sa Pamulong': [{ name: 'Yestin Roy Prado', img: 'images/Yestin.jpeg' }],
+                        'Declamation': [{ name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg' }],
+                        'Essay Writing': [{ name: 'Arnel L. Villanueva Jr.', img: 'images/Arnel.jpg' }],
+                        'Math Quiz Bowl': [{ name: 'Charles Bacotot', img: 'images/Charles.jpg' }],
+                        'Oration': [{ name: 'Hazel Queen Quibol', img: 'images/Hazel.png' }],
+                        'Sudoku': [{ name: 'Sergie Arrojado', img: 'images/Sergie.jpg' }],
+                        'Chess': [{ name: 'Raniel Jay Perandos', img: 'images/Raniel.jpg' }],
+                        'Spelling Contest': [{ name: 'Jay-ar Base', img: 'images/Jayar.png' }],
+                        'Scrabble': [{ name: 'Hazel Queen Quibol', img: 'images/Hazel.png' }],
+                        'Sungka': [{ name: 'Arjay Alangcas', img: 'images/Arjay.jpeg' }],
+                };
+
+                let _facList = [], _facIdx = 0;
+
+                function openFacilitatorModal(eventName) {
+                        const key = eventName.replace(/&amp;/g, '&');
+                        _facList = FACILITATORS_MAP[key] || [];
+                        if (!_facList.length) return;
+                        _facIdx = 0;
+                        document.getElementById('facModalTitle').textContent = key;
+                        document.getElementById('facModal').style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                        renderFacSlide(0);
+                        buildFacDots();
+                        updateFacArrows();
+                }
+
+                function closeFacModalBtn() {
+                        document.getElementById('facModal').style.display = 'none';
+                        document.body.style.overflow = '';
+                }
+
+                function closeFacModal(e) {
+                        if (e.target === document.getElementById('facModal')) closeFacModalBtn();
+                }
+
+                function renderFacSlide(idx) {
+                        const slide = document.getElementById('facSlide');
+                        slide.style.opacity = '0';
+                        slide.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                                const fac = _facList[idx];
+                                document.getElementById('facAvatar').src = fac.img;
+                                document.getElementById('facAvatar').alt = fac.name;
+                                document.getElementById('facName').textContent = fac.name;
+                                document.getElementById('facCounter').textContent = (idx + 1) + ' / ' + _facList.length;
+                                slide.style.opacity = '1';
+                                slide.style.transform = 'translateY(0)';
+                                updateFacDots(idx);
+                        }, 160);
+                }
+
+                function slideFac(dir) {
+                        _facIdx = (_facIdx + dir + _facList.length) % _facList.length;
+                        renderFacSlide(_facIdx);
+                }
+
+                function buildFacDots() {
+                        const container = document.getElementById('facDots');
+                        container.innerHTML = '';
+                        _facList.forEach((_, i) => {
+                                const dot = document.createElement('button');
+                                dot.style.cssText = 'width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;transition:background .2s,transform .2s;padding:0;';
+                                dot.style.background = i === 0 ? '#CCFF00' : 'rgba(255,255,255,0.25)';
+                                dot.style.transform = i === 0 ? 'scale(1.3)' : 'scale(1)';
+                                dot.onclick = () => { _facIdx = i; renderFacSlide(i); };
+                                dot.id = 'facDot_' + i;
+                                container.appendChild(dot);
+                        });
+                }
+
+                function updateFacDots(activeIdx) {
+                        _facList.forEach((_, i) => {
+                                const dot = document.getElementById('facDot_' + i);
+                                if (!dot) return;
+                                dot.style.background = i === activeIdx ? '#CCFF00' : 'rgba(255,255,255,0.25)';
+                                dot.style.transform = i === activeIdx ? 'scale(1.3)' : 'scale(1)';
+                        });
+                }
+
+                function updateFacArrows() {
+                        const show = _facList.length > 1;
+                        document.getElementById('facPrev').style.display = show ? 'flex' : 'none';
+                        document.getElementById('facNext').style.display = show ? 'flex' : 'none';
+                }
+
+                /* Keyboard nav */
+                document.addEventListener('keydown', function (e) {
+                        if (document.getElementById('facModal').style.display === 'block') {
+                                if (e.key === 'ArrowLeft') slideFac(-1);
+                                if (e.key === 'ArrowRight') slideFac(1);
+                                if (e.key === 'Escape') closeFacModalBtn();
+                        }
+                });
+        </script>
+
+</body>
+
+</html>
