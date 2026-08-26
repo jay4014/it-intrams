@@ -12,8 +12,8 @@
                 rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
                 rel="stylesheet">
-        <link rel="icon" type="image/png" href="images/IT_LOGO.png">
-        <link rel="apple-touch-icon" href="images/IT_LOGO.png">
+        <link rel="icon" type="image/png" href="IT_LOGO.png">
+        <link rel="apple-touch-icon" href="IT_LOGO.png">
         <script id="tailwind-config">
                 tailwind.config = {
                         darkMode: "class",
@@ -553,7 +553,7 @@
                 <div
                         class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
                         <div class="flex items-center gap-3">
-                                <img src="images/IT_LOGO.png" alt="IT Logo"
+                                <img src="IT_LOGO.png" alt="IT Logo"
                                         style="width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(204,255,0,0.5));">
                                 <div class="font-headline-lg text-primary-fixed tracking-tighter uppercase">INFORMATION
                                         TECHNOLOGY DEPARTMENT</div>
@@ -665,39 +665,7 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <!-- Parade Delegates -->
-                                <div
-                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
-                                        <div
-                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
-                                        </div>
-                                        <div class="relative z-10">
-                                                <span
-                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
-                                                        MARCH</span>
-                                                <h3
-                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
-                                                        Parade Delegates</h3>
-                                                <p
-                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
-                                                        <span
-                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Parade Delegates">0 REGISTERED</span>
-                                                </p>
-                                        </div>
-                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        onclick="goRegister('Parade Delegates')">Register</button>
-                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
-                                                        title="View Facilitators"
-                                                        onclick="openFacilitatorModal('Parade Delegates')">
-                                                        <span
-                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
-                                                        <span
-                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
-                                                </div>
-                                        </div>
-                                </div>
+                              
                                 <!-- Folk Dance -->
                                 <div
                                         class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
@@ -797,42 +765,7 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <!-- Department Arch Competition -->
-                                <div
-                                        class="brutal-card p-6 flex flex-col justify-between h-64 group relative overflow-hidden">
-                                        <div
-                                                class="absolute inset-0 hex-bg opacity-0 group-hover:opacity-10 transition-opacity">
-                                        </div>
-                                        <div class="relative z-10">
-                                                <span
-                                                        class="font-label-mono text-label-mono text-on-surface-variant mb-2 block text-xs">TYPE:
-                                                        DESIGN</span>
-                                                <h3
-                                                        class="font-headline-lg-mobile text-headline-lg-mobile text-white uppercase">
-                                                        Arch Competition</h3>
-                                                <p
-                                                        class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
-                                                        <span
-                                                                class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Department Arch Competition">0
-                                                                REGISTERED</span>
-                                                </p>
-                                        </div>
-                                        <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        onclick="goRegister('Department Arch Competition')">Register</button>
-                                                <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
-                                                        title="View Facilitators"
-                                                        onclick="openFacilitatorModal('Department Arch Competition')">
-                                                        <span
-                                                                class="material-symbols-outlined text-[20px]">support_agent</span>
-                                                        <span
-                                                                class="font-label-mono text-[10px] uppercase text-on-surface-variant hidden sm:inline">FACILITATOR</span>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </section>
+                               
                 <!-- 2. SPORTS & ESPORTS -->
                 <section class="relative" id="sports">
                         <div class="flex items-end gap-4 mb-12 border-b border-white/10 pb-4">
@@ -1708,33 +1641,31 @@
                 /* ===== FACILITATOR MODAL SLIDESHOW ===== */
                 const FACILITATORS_MAP = {
                         /* ── EVENTS ── */
-                        'Mr. & Ms Intramurals': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
-                        'Yell Competition': [{name: 'Charles Bacotot', img: 'images/Charles.jpg'}],
-                        'Parade Delegates': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
-                        'Folk Dance': [{name: 'Sergie Arrojado', img: 'images/Sergie.jpg'}],
-                        'Hip Hop': [{name: 'Jeorge Rey Mancilla', img: 'images/Jeorge.jpg'}],
-                        'Vocal Competition': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Vincent Cababan', img: 'images/Vincent.jpg'}],
-                        'Department Arch Competition': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
+                        'Mr. & Ms Intramurals': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'Gladys.jpg'}, {name: 'En Catarungan', img: 'En.png'}],
+                        'Yell Competition': [{name: 'Charles Bacotot', img: 'Charles.jpg'}],
+                        'Folk Dance': [{name: 'Sergie Arrojado', img: 'Sergie.jpg'}],
+                        'Hip Hop': [{name: 'Jeorge Rey Mancilla', img: 'Jeorge.jpg'}],
+                        'Vocal Competition': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Vincent Cababan', img: 'Vincent.jpg'}],
                         /* ── SPORTS & E-SPORTS ── */
-                        'Volleyball': [{name: 'Arnel L. Villanueva Jr.', img: 'images/arnel.png'}],
-                        'Basketball': [{name: 'Raniel Jay Perandos', img: 'images/Raniel.jpg'}],
-                        'Badminton': [{name: 'Yestin Roy Prado', img: 'images/Yestin.jpeg'}],
-                        'Pickleball': [{name: 'Vincent Cababan', img: 'images/Vincent.jpg'}],
-                        'E-sports': [{name: 'Jade Louis S. Cabucos', img: 'images/Jade.jpg'}],
-                        'Table Tennis': [{name: 'Arjay Alangcas', img: 'images/Arjay.jpeg'}],
+                        'Volleyball': [{name: 'Arnel L. Villanueva Jr.', img: 'arnel.png'}],
+                        'Basketball': [{name: 'Raniel Jay Perandos', img: 'Raniel.jpg'}],
+                        'Badminton': [{name: 'Yestin Roy Prado', img: 'Yestin.jpeg'}],
+                        'Pickleball': [{name: 'Vincent Cababan', img: 'Vincent.jpg'}],
+                        'E-sports': [{name: 'Jade Louis S. Cabucos', img: 'Jade.jpg'}],
+                        'Table Tennis': [{name: 'Arjay Alangcas', img: 'Arjay.jpeg'}],
                         /* ── ACADEMICS ── */
-                        'Impromptu Speaking': [{name: 'Jeorge Rey Mancilla', img: 'images/Jeorge.jpg'}],
-                        'Ballak': [{name: 'Vincent Cababan', img: 'images/Vincent.jpg'}],
-                        'Sangka sa Pamulong': [{name: 'Yestin Roy Prado', img: 'images/Yestin.jpeg'}],
-                        'Declamation': [{name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}],
-                        'Essay Writing': [{name: 'Arnel L. Villanueva Jr.', img: 'images/Arnel.jpg'}],
-                        'Math Quiz Bowl': [{name: 'Charles Bacotot', img: 'images/Charles.jpg'}],
-                        'Oration': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}],
-                        'Sudoku': [{name: 'Sergie Arrojado', img: 'images/Sergie.jpg'}],
-                        'Chess': [{name: 'Raniel Jay Perandos', img: 'images/Raniel.jpg'}],
-                        'Spelling Contest': [{name: 'Jay-ar Base', img: 'images/Jayar.png'}],
-                        'Scrabble': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}],
-                        'Sungka': [{name: 'Arjay Alangcas', img: 'images/Arjay.jpeg'}],
+                        'Impromptu Speaking': [{name: 'Jeorge Rey Mancilla', img: 'Jeorge.jpg'}],
+                        'Ballak': [{name: 'Vincent Cababan', img: 'Vincent.jpg'}],
+                        'Sangka sa Pamulong': [{name: 'Yestin Roy Prado', img: 'Yestin.jpeg'}],
+                        'Declamation': [{name: 'Gladymay S. Sadorra', img: 'Gladys.jpg'}],
+                        'Essay Writing': [{name: 'Arnel L. Villanueva Jr.', img: 'Arnel.jpg'}],
+                        'Math Quiz Bowl': [{name: 'Charles Bacotot', img: 'Charles.jpg'}],
+                        'Oration': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}],
+                        'Sudoku': [{name: 'Sergie Arrojado', img: 'Sergie.jpg'}],
+                        'Chess': [{name: 'Raniel Jay Perandos', img: 'Raniel.jpg'}],
+                        'Spelling Contest': [{name: 'Jay-ar Base', img: 'Jayar.png'}],
+                        'Scrabble': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}],
+                        'Sungka': [{name: 'Arjay Alangcas', img: 'Arjay.jpeg'}],
                 };
 
                 let _facList = [], _facIdx = 0;
