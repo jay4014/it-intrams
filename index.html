@@ -252,6 +252,42 @@
                         border-bottom-color: #CCFF00;
                         box-shadow: none;
                 }
+
+                /* ── Skeleton loading placeholder for registration counts ── */
+                .skel-bar {
+                        display: inline-block;
+                        width: 92px;
+                        max-width: 100%;
+                        height: 11px;
+                        border-radius: 2px;
+                        vertical-align: middle;
+                        background: linear-gradient(90deg,
+                                        rgba(204, 255, 0, 0.10) 25%,
+                                        rgba(204, 255, 0, 0.22) 37%,
+                                        rgba(204, 255, 0, 0.10) 63%);
+                        background-size: 400% 100%;
+                        animation: skel-shimmer 1.4s ease-in-out infinite;
+                }
+
+                .skel-bar.skel-sm {
+                        width: 68px;
+                }
+
+                @keyframes skel-shimmer {
+                        0% {
+                                background-position: 100% 50%;
+                        }
+
+                        100% {
+                                background-position: 0% 50%;
+                        }
+                }
+
+                /* Buttons/badges start dimmed while slot availability is still loading */
+                .btn-primary.slots-loading {
+                        opacity: 0.55;
+                        pointer-events: none;
+                }
         </style>
 </head>
 
@@ -615,8 +651,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Mr. &amp; Ms Intramurals">0
-                                                                REGISTERED</span>
+                                                        <span data-event-count="Mr. &amp; Ms Intramurals"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -649,7 +684,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Yell Competition">0 REGISTERED</span>
+                                                        <span data-event-count="Yell Competition"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -682,7 +717,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Parade Delegates">0 REGISTERED</span>
+                                                        <span data-event-count="Parade Delegates"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -715,7 +750,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Folk Dance">0 REGISTERED</span>
+                                                        <span data-event-count="Folk Dance"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -748,7 +783,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Hip Hop">0 REGISTERED</span>
+                                                        <span data-event-count="Hip Hop"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -781,7 +816,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Vocal Competition">0 REGISTERED</span>
+                                                        <span data-event-count="Vocal Competition"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -814,8 +849,7 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Department Arch Competition">0
-                                                                REGISTERED</span>
+                                                        <span data-event-count="Department Arch Competition"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -859,17 +893,17 @@
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="vbMaleCount">BOYS: 0/30</span>
+                                                                <span id="vbMaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="vbFemaleCount">GIRLS: 0/30</span>
+                                                                <span id="vbFemaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                 </div>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase slots-loading"
                                                         id="vbRegisterBtn"
                                                         onclick="goRegister('Volleyball')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
@@ -903,11 +937,11 @@
                                                         class="font-label-mono text-xs text-primary-fixed mt-2 flex items-center gap-1.5">
                                                         <span
                                                                 class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span id="bbCount">BOYS: 0/30 REGISTERED</span>
+                                                        <span id="bbCount"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase slots-loading"
                                                         id="bbRegisterBtn"
                                                         onclick="goRegister('Basketball')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
@@ -942,17 +976,17 @@
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="bmMaleCount">BOYS: 0/10</span>
+                                                                <span id="bmMaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="bmFemaleCount">GIRLS: 0/10</span>
+                                                                <span id="bmFemaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                 </div>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase slots-loading"
                                                         id="bmRegisterBtn"
                                                         onclick="goRegister('Badminton')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
@@ -987,17 +1021,17 @@
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="pbMaleCount">BOYS: 0/10</span>
+                                                                <span id="pbMaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="pbFemaleCount">GIRLS: 0/10</span>
+                                                                <span id="pbFemaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                 </div>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase slots-loading"
                                                         id="pbRegisterBtn"
                                                         onclick="goRegister('Pickleball')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
@@ -1031,17 +1065,17 @@
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="mlMaleCount">MALE: 0/8 TEAMS</span>
+                                                                <span id="mlMaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="mlFemaleCount">FEMALE: 0/4 TEAMS</span>
+                                                                <span id="mlFemaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                 </div>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase slots-loading"
                                                         id="mlRegisterBtn"
                                                         onclick="window.location.href='register-ml.html'">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
@@ -1076,17 +1110,17 @@
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="ttMaleCount">BOYS: 0/10</span>
+                                                                <span id="ttMaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                         <span class="flex items-center gap-1.5">
                                                                 <span
                                                                         class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                                <span id="ttFemaleCount">GIRLS: 0/10</span>
+                                                                <span id="ttFemaleCount"><span class="skel-bar skel-sm"></span></span>
                                                         </span>
                                                 </div>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
+                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase slots-loading"
                                                         id="ttRegisterBtn"
                                                         onclick="goRegister('Table Tennis')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
@@ -1128,7 +1162,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Impromptu Speaking">0 REGISTERED</span>
+                                                        <span data-event-count="Impromptu Speaking"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1156,7 +1190,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Ballak">0 REGISTERED</span>
+                                                        <span data-event-count="Ballak"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1184,7 +1218,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Sangka sa Pamulong">0 REGISTERED</span>
+                                                        <span data-event-count="Sangka sa Pamulong"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1212,7 +1246,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Declamation">0 REGISTERED</span>
+                                                        <span data-event-count="Declamation"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1240,7 +1274,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Essay Writing">0 REGISTERED</span>
+                                                        <span data-event-count="Essay Writing"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1268,7 +1302,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Math Quiz Bowl">0 REGISTERED</span>
+                                                        <span data-event-count="Math Quiz Bowl"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1296,7 +1330,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Oration">0 REGISTERED</span>
+                                                        <span data-event-count="Oration"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1324,7 +1358,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Sudoku">0 REGISTERED</span>
+                                                        <span data-event-count="Sudoku"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1350,7 +1384,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Chess">0 REGISTERED</span>
+                                                        <span data-event-count="Chess"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1378,7 +1412,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Spelling Contest">0 REGISTERED</span>
+                                                        <span data-event-count="Spelling Contest"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1406,7 +1440,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Scrabble">0 REGISTERED</span>
+                                                        <span data-event-count="Scrabble"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1434,7 +1468,7 @@
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
                                                                 class="inline-block w-1.5 h-1.5 rounded-full bg-primary-fixed animate-pulse"></span>
-                                                        <span data-event-count="Sungka">0 REGISTERED</span>
+                                                        <span data-event-count="Sungka"><span class="skel-bar"></span></span>
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
@@ -1479,14 +1513,8 @@
                 async function updateLiveRegistrationCounts() {
                         const countElements = document.querySelectorAll('[data-event-count]');
 
-                        // 1. Instant update from localStorage
-                        countElements.forEach(el => {
-                                const eventName = el.getAttribute('data-event-count');
-                                const localCount = parseInt(localStorage.getItem('count_' + eventName) || '0');
-                                el.textContent = `${localCount} REGISTERED`;
-                        });
-
-                        // 2. Fetch live count from Google Sheets Apps Script API
+                        // Resolve the real count first (sheet, falling back to localStorage) —
+                        // the skeleton bar stays visible the whole time, so we never flash "0".
                         if (SCRIPT_URL && SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
                                 try {
                                         const res = await fetch(SCRIPT_URL);
@@ -1513,11 +1541,19 @@
                                                         const total = Math.max(sheetCount, localCount);
                                                         el.textContent = `${total} REGISTERED`;
                                                 });
+                                                return;
                                         }
                                 } catch (err) {
                                         console.log("Syncing with local storage registration count.");
                                 }
                         }
+
+                        // Fallback — fetch failed, no script URL configured, or the response wasn't usable.
+                        countElements.forEach(el => {
+                                const eventName = el.getAttribute('data-event-count');
+                                const localCount = parseInt(localStorage.getItem('count_' + eventName) || '0');
+                                el.textContent = `${localCount} REGISTERED`;
+                        });
                 }
 
                 // ── Shared live-count fetch (one network call, reused by all cap checks) ──
@@ -1585,6 +1621,7 @@
 
                         const isFull = maleCount >= ML_LIMITS.Male && femaleCount >= ML_LIMITS.Female;
                         if (btn && badge) {
+                                btn.classList.remove('slots-loading');
                                 btn.classList.toggle('hidden', isFull);
                                 badge.classList.toggle('hidden', !isFull);
                         }
@@ -1604,7 +1641,7 @@
 
                         el.textContent = `BOYS: ${count}/${limit} REGISTERED`;
                         const isFull = count >= limit;
-                        if (btn && badge) {btn.classList.toggle('hidden', isFull); badge.classList.toggle('hidden', !isFull);}
+                        if (btn && badge) {btn.classList.remove('slots-loading'); btn.classList.toggle('hidden', isFull); badge.classList.toggle('hidden', !isFull);}
                 }
 
                 // ── Gender-split events: Volleyball (30/30), Table Tennis (10/10), Badminton (10/10), Pickleball (10/10) ──
@@ -1633,7 +1670,7 @@
                                 maleEl.textContent = `BOYS: ${maleCount}/${cfg.limit}`;
                                 femaleEl.textContent = `GIRLS: ${femaleCount}/${cfg.limit}`;
                                 const isFull = maleCount >= cfg.limit && femaleCount >= cfg.limit;
-                                if (btn && badge) {btn.classList.toggle('hidden', isFull); badge.classList.toggle('hidden', !isFull);}
+                                if (btn && badge) {btn.classList.remove('slots-loading'); btn.classList.toggle('hidden', isFull); badge.classList.toggle('hidden', !isFull);}
                         }
                 }
 
