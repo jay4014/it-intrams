@@ -13,8 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Geist:wght@400&family=JetBrains+Mono:wght@500&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/IT_LOGO.png">
-    <link rel="apple-touch-icon" href="images/IT_LOGO.png">
+     <link rel="icon" type="image/png" href="images/IT_LOGO.png">
+        <link rel="apple-touch-icon" href="images/IT_LOGO.png">
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -701,11 +701,19 @@
         const GENDER_SPLIT_LIMITS = {
             'Volleyball': { Male: 30, Female: 30 },
             'Table Tennis': { Male: 10, Female: 10 },
-            'Badminton': { Male: 10, Female: 10 },
+            'Badminton': { Male: 20, Female: 20 },
             'Pickleball': { Male: 10, Female: 10 }
         };
-        const TOTAL_LIMITS = {};
-        const MALE_ONLY_LIMITS = { 'Basketball': 30 };
+        const TOTAL_LIMITS = {'Hip Hop': 0 , 'Math Quiz Bowl': 0 , 'Essay Writing': 0,
+    'Scrabble': 0,
+    'Sudoku': 0,
+    'Vocal Competition': 0,
+    'Yell Competition': 0,
+    'Chess': 0,
+    'Mr. & Ms Intramurals': 0,
+    'Spelling Contest': 0,
+    'Sungka': 0};
+        const MALE_ONLY_LIMITS = { 'Basketball': 50 };
 
         let capLocked = false;
 
@@ -881,34 +889,54 @@
                 loadingStatusText.textContent = "SAVING TO GOOGLE SHEETS...";
                 loadingProgressBar.style.width = "65%";
 
-                if (SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
-                    fetch(SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                        body: JSON.stringify(payload),
-                    }).catch(err => console.error("Sheet Sync Warning:", err));
-                }
+               let result = null;
 
-                // Increment dynamic registration counter for index.html
-                if (GENDER_SPLIT_LIMITS[eventName]) {
-                    const g = document.getElementById('fieldGender').value;
-                    const key = 'count_' + eventName + '-' + g;
-                    const cur = parseInt(localStorage.getItem(key) || '0');
-                    localStorage.setItem(key, cur + 1);
-                }
-                const currentLocal = parseInt(localStorage.getItem('count_' + eventName) || '0');
-                localStorage.setItem('count_' + eventName, currentLocal + 1);
+if (SCRIPT_URL !== 'PASTE_YOUR_SCRIPT_URL_HERE') {
+    const res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+    });
+    result = await res.json();
+}
 
-                await new Promise(r => setTimeout(r, 500));
-                loadingProgressBar.style.width = "100%";
-                loadingStatusText.textContent = "REGISTRATION CONFIRMED!";
-                await new Promise(r => setTimeout(r, 300));
+loadingModal.classList.add('hidden');
+loadingModal.classList.remove('flex');
 
-                loadingModal.classList.add('hidden');
-                loadingModal.classList.remove('flex');
+if (!result || result.result === 'error') {
+    document.getElementById('errorBanner').textContent =
+        '⚠ ' + (result && result.message ? result.message.toUpperCase() : 'SUBMISSION FAILED — CHECK YOUR CONNECTION AND TRY AGAIN.');
+    document.getElementById('errorBanner').classList.add('show');
+    isSubmitting = false;
+    btn.disabled = false;
+    return;
+}
 
-                showSuccess(payload);
+if (result.result === 'full') {
+    lockSubmit(result.message.toUpperCase());
+    isSubmitting = false;
+    return;
+}
+
+if (result.result === 'duplicate') {
+    document.getElementById('errorBanner').textContent = '⚠ ' + result.message.toUpperCase();
+    document.getElementById('errorBanner').classList.add('show');
+    isSubmitting = false;
+    btn.disabled = false;
+    return;
+}
+
+// result.result === 'success' — safe to increment local counters and show success
+if (GENDER_SPLIT_LIMITS[eventName]) {
+    const g = document.getElementById('fieldGender').value;
+    const key = 'count_' + eventName + '-' + g;
+    const cur = parseInt(localStorage.getItem(key) || '0');
+    localStorage.setItem(key, cur + 1);
+}
+const currentLocal = parseInt(localStorage.getItem('count_' + eventName) || '0');
+localStorage.setItem('count_' + eventName, currentLocal + 1);
+
+showSuccess(payload);
 
             } catch (err) {
                 console.error(err);

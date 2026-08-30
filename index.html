@@ -253,6 +253,34 @@
                         box-shadow: none;
                 }
 
+                .btn-locked {
+    background: transparent;
+    color: #ff5555;
+    border: 1px solid rgba(255, 85, 85, 0.5);
+    border-radius: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+.btn-locked-sm {
+    color: #ff5555;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: not-allowed;
+    opacity: 0.85;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
                 /* ── Skeleton loading placeholder for registration counts ── */
                 .skel-bar {
                         display: inline-block;
@@ -655,8 +683,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        onclick="goRegister('Mr. &amp; Ms Intramurals')">Register</button>
+                                               <button class="btn-locked" type="button" disabled>REGISTRATION CLOSED </button>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
                                                         onclick="openFacilitatorModal('Mr. &amp; Ms Intramurals')">
@@ -688,8 +715,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        onclick="goRegister('Yell Competition')">Register</button>
+                                             <button class="btn-locked" type="button" disabled>REGISTRATION CLOSED</button>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
                                                         onclick="openFacilitatorModal('Yell Competition')">
@@ -721,8 +747,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        type="button" disabled>Locked</button>
+                                               <button class="btn-locked" type="button" disabled>REGISTRATION CLOSED</button>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
                                                         onclick="openFacilitatorModal('Parade Delegates')">
@@ -787,8 +812,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        onclick="goRegister('Hip Hop')">Register</button>
+                                              <button class="btn-locked" type="button" disabled>REGISTRATION CLOSED</button>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
                                                         onclick="openFacilitatorModal('Hip Hop')">
@@ -820,8 +844,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        onclick="goRegister('Vocal Competition')">Register</button>
+                                              <button class="btn-locked" type="button" disabled>REGISTRATION CLOSED</button>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
                                                         onclick="openFacilitatorModal('Vocal Competition')">
@@ -853,8 +876,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="btn-primary font-label-mono text-label-mono px-4 py-2 uppercase"
-                                                        type="button" disabled>Locked</button>
+                                               <button class="btn-locked" type="button" disabled>REGISTRATION CLOSED</button>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
                                                         onclick="openFacilitatorModal('Department Arch Competition')">
@@ -946,7 +968,7 @@
                                                         onclick="goRegister('Basketball')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
                                                         id="bbUnavailableBadge"
-                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS 
                                                         UNAVAILABLE</span>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
@@ -991,7 +1013,7 @@
                                                         onclick="goRegister('Badminton')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
                                                         id="bmUnavailableBadge"
-                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS 
                                                         UNAVAILABLE</span>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
@@ -1036,7 +1058,7 @@
                                                         onclick="goRegister('Pickleball')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
                                                         id="pbUnavailableBadge"
-                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS 
                                                         UNAVAILABLE</span>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
@@ -1080,7 +1102,7 @@
                                                         onclick="window.location.href='register-ml.html'">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
                                                         id="mlUnavailableBadge"
-                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS 
                                                         UNAVAILABLE</span>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
@@ -1125,7 +1147,7 @@
                                                         onclick="goRegister('Table Tennis')">Register</button>
                                                 <span class="font-label-mono text-[11px] uppercase hidden"
                                                         id="ttUnavailableBadge"
-                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS
+                                                        style="color:#ffb4ab;border:1px solid rgba(255,100,100,0.4);padding:6px 10px;">SLOTS 
                                                         UNAVAILABLE</span>
                                                 <div class="flex items-center gap-1 text-primary-fixed/80 hover:text-primary-fixed transition-colors cursor-pointer select-none"
                                                         title="View Facilitators"
@@ -1185,7 +1207,7 @@
                                                         class="font-label-mono text-label-mono text-on-surface-variant text-[10px] block mb-1">ORAL</span>
                                                 <h4
                                                         class="font-body-lg text-body-lg text-white font-bold leading-tight">
-                                                        Ballak</h4>
+                                                        Balak</h4>
                                                 <p
                                                         class="font-label-mono text-[11px] text-primary-fixed mt-1 flex items-center gap-1">
                                                         <span
@@ -1278,9 +1300,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Essay Writing')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                             <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Essay Writing')">support_agent</span>
@@ -1306,9 +1326,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Math Quiz Bowl')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                               <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Math Quiz Bowl')">support_agent</span>
@@ -1362,9 +1380,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Sudoku')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                            <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Sudoku')">support_agent</span>
@@ -1388,9 +1404,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Chess')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                             <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Chess')">support_agent</span>
@@ -1416,9 +1430,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Spelling Contest')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                               <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Spelling Contest')">support_agent</span>
@@ -1444,9 +1456,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Scrabble')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                             <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Scrabble')">support_agent</span>
@@ -1472,9 +1482,7 @@
                                                 </p>
                                         </div>
                                         <div class="flex items-center justify-between mt-auto w-full relative z-10">
-                                                <button class="text-primary-fixed hover:text-white font-label-mono text-xs uppercase text-left flex items-center gap-1"
-                                                        onclick="goRegister('Sungka')">Register <span
-                                                                class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+                                               <button class="btn-locked-sm" type="button" disabled>CLOSED</button>
                                                 <span class="material-symbols-outlined text-primary-fixed/70 text-[18px] cursor-pointer hover:text-primary-fixed transition-colors"
                                                         title="View Facilitator"
                                                         onclick="openFacilitatorModal('Sungka')">support_agent</span>
@@ -1499,7 +1507,7 @@
                                         href="#">Contact Support</a>
                         </div>
                         <div class="font-body-md text-body-md text-on-surface-variant">
-                                © 202X IT DEPARTMENT. BUILT ON LOGIC.
+                                © 2026 IT DEPARTMENT. BUILT BY POGING IT INSTRUCTORS.
                         </div>
                 </div>
         </footer>
@@ -1584,7 +1592,7 @@
                 }
 
                 // ── Mobile Legends (Male 8 teams / Female 4 teams) ──
-                const ML_LIMITS = {Male: 8, Female: 4};
+                const ML_LIMITS = {Male: 16, Female: 4};
 
                 async function updateMobileLegendsCounts() {
                         const maleEl = document.getElementById('mlMaleCount');
@@ -1633,7 +1641,7 @@
                         if (!el) return;
                         const btn = document.getElementById('bbRegisterBtn');
                         const badge = document.getElementById('bbUnavailableBadge');
-                        const limit = 30;
+                        const limit = 50;
 
                         const counts = await fetchLiveCounts();
                         let count = findCount(counts, 'Basketball');
@@ -1648,7 +1656,7 @@
                 const GENDER_SPLIT_CARD_EVENTS = {
                         'Volleyball': {limit: 30, maleEl: 'vbMaleCount', femaleEl: 'vbFemaleCount', btn: 'vbRegisterBtn', badge: 'vbUnavailableBadge'},
                         'Table Tennis': {limit: 10, maleEl: 'ttMaleCount', femaleEl: 'ttFemaleCount', btn: 'ttRegisterBtn', badge: 'ttUnavailableBadge'},
-                        'Badminton': {limit: 10, maleEl: 'bmMaleCount', femaleEl: 'bmFemaleCount', btn: 'bmRegisterBtn', badge: 'bmUnavailableBadge'},
+                        'Badminton': {limit: 20, maleEl: 'bmMaleCount', femaleEl: 'bmFemaleCount', btn: 'bmRegisterBtn', badge: 'bmUnavailableBadge'},
                         'Pickleball': {limit: 10, maleEl: 'pbMaleCount', femaleEl: 'pbFemaleCount', btn: 'pbRegisterBtn', badge: 'pbUnavailableBadge'},
                 };
 
@@ -1745,13 +1753,13 @@
                 /* ===== FACILITATOR MODAL SLIDESHOW ===== */
                 const FACILITATORS_MAP = {
                         /* ── EVENTS ── */
-                        'Mr. & Ms Intramurals': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
+                        'Mr. & Ms Intramurals': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
                         'Yell Competition': [{name: 'Charles Bacotot', img: 'images/Charles.jpg'}],
-                        'Parade Delegates': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
+                        'Parade Delegates': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
                         'Folk Dance': [{name: 'Sergie Arrojado', img: 'images/Sergie.jpg'}],
                         'Hip Hop': [{name: 'Jeorge Rey Mancilla', img: 'images/Jeorge.jpg'}],
-                        'Vocal Competition': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Vincent Cababan', img: 'images/Vincent.jpg'}],
-                        'Department Arch Competition': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
+                        'Vocal Competition': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Vincent Cababan', img: 'images/Vincent.jpg'}],
+                        'Department Arch Competition': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}, {name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}, {name: 'En Catarungan', img: 'images/En.png'}],
                         /* ── SPORTS & E-SPORTS ── */
                         'Volleyball': [{name: 'Arnel L. Villanueva Jr.', img: 'images/arnel.png'}],
                         'Basketball': [{name: 'Raniel Jay Perandos', img: 'images/Raniel.jpg'}],
@@ -1766,11 +1774,11 @@
                         'Declamation': [{name: 'Gladymay S. Sadorra', img: 'images/Gladys.jpg'}],
                         'Essay Writing': [{name: 'Arnel L. Villanueva Jr.', img: 'images/arnel.jpg'}],
                         'Math Quiz Bowl': [{name: 'Charles Bacotot', img: 'images/Charles.jpg'}],
-                        'Oration': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}],
+                        'Oration': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}],
                         'Sudoku': [{name: 'Sergie Arrojado', img: 'images/Sergie.jpg'}],
                         'Chess': [{name: 'Raniel Jay Perandos', img: 'images/Raniel.jpg'}],
                         'Spelling Contest': [{name: 'Jay-ar Base', img: 'images/Jayar.png'}],
-                        'Scrabble': [{name: 'Hazel Queen Quibol', img: 'images/Hazel.png'}],
+                        'Scrabble': [{name: 'Hazel Queen Quibol', img: 'Hazel.png'}],
                         'Sungka': [{name: 'Arjay Alangcas', img: 'images/Arjay.jpeg'}],
                 };
 

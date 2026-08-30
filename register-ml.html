@@ -545,7 +545,7 @@
         let isSubmitting = false;
 
         // ── Gender-based team slot limits ─────────────────────────────
-        const GENDER_LIMITS = { Male: 8, Female: 4 };
+      const GENDER_LIMITS = { Male: 16, Female: 4 };
         let currentCategory = '';
         let categoryLocked = false;
 
@@ -754,35 +754,53 @@
                 loadingStatus.textContent = 'SAVING TO GOOGLE SHEETS...';
                 loadingBar.style.width = '65%';
 
-                if (SCRIPT_URL) {
-                    fetch(SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                        body: JSON.stringify(payload),
-                    }).catch(function (err) { console.error('Sheet sync warning:', err); });
-                }
+               var result = null;
+if (SCRIPT_URL) {
+    var res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+    });
+    result = await res.json();
+}
 
-                // Update local counts — per-gender and overall E-sports count
-                var curGender = parseInt(localStorage.getItem('count_E-sports-' + category) || '0');
-                localStorage.setItem('count_E-sports-' + category, curGender + 1);
+loadingModal.classList.add('hidden');
+loadingModal.classList.remove('flex');
 
-                var curTotal = parseInt(localStorage.getItem('count_E-sports') || '0');
-                localStorage.setItem('count_E-sports', curTotal + 1);
+if (!result || result.result === 'error') {
+    document.getElementById('errorBanner').textContent =
+        '\u26A0 ' + (result && result.message ? result.message.toUpperCase() : 'SUBMISSION FAILED — CHECK YOUR CONNECTION AND TRY AGAIN.');
+    document.getElementById('errorBanner').classList.add('show');
+    isSubmitting = false;
+    document.getElementById('submitBtn').disabled = false;
+    return;
+}
 
-                await new Promise(function (r) { setTimeout(r, 500); });
-                loadingBar.style.width = '100%';
-                loadingStatus.textContent = 'TEAM REGISTERED!';
-                await new Promise(function (r) { setTimeout(r, 300); });
+if (result.result === 'full') {
+    document.getElementById('errorBanner').textContent = '\u26A0 ' + result.message.toUpperCase();
+    document.getElementById('errorBanner').classList.add('show');
+    isSubmitting = false;
+    onCategoryChange(); // refresh pill + re-lock the button
+    return;
+}
 
-                // Hide loading
-                loadingModal.classList.add('hidden');
-                loadingModal.classList.remove('flex');
+if (result.result === 'duplicate') {
+    document.getElementById('errorBanner').textContent = '\u26A0 ' + result.message.toUpperCase();
+    document.getElementById('errorBanner').classList.add('show');
+    isSubmitting = false;
+    document.getElementById('submitBtn').disabled = false;
+    return;
+}
 
-                // Show success screen
-                document.getElementById('formSection').style.display = 'none';
-                document.getElementById('successMsg').textContent = 'Team "' + teamName + '" (' + category + ') with ' + members.length + ' members has been registered for Mobile Legends.';
-                document.getElementById('successScreen').classList.add('show');
+// result.result === 'success'
+var curGender = parseInt(localStorage.getItem('count_E-sports-' + category) || '0');
+localStorage.setItem('count_E-sports-' + category, curGender + 1);
+var curTotal = parseInt(localStorage.getItem('count_E-sports') || '0');
+localStorage.setItem('count_E-sports', curTotal + 1);
+
+document.getElementById('formSection').style.display = 'none';
+document.getElementById('successMsg').textContent = 'Team "' + teamName + '" (' + category + ') with ' + members.length + ' members has been registered for Mobile Legends.';
+document.getElementById('successScreen').classList.add('show');
 
             } catch (err) {
                 console.error(err);
